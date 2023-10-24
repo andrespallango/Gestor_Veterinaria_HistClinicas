@@ -1,0 +1,16 @@
+<!-- buscar_historia.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buscar Historia Clínica</title>
+</head>
+<body>
+    <h1>Buscar Historia Clínica</h1>
+    <form method="POST">
+        Cédula: <input type="text" name="cedula"><br>
+        <input type="submit" value="Buscar Historia">
+    </form>
+
+    <a href="{{ url_for('index') }}">Regresar</a>
+</body>
+</html>

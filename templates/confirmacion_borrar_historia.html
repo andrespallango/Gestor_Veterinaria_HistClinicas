@@ -1,0 +1,17 @@
+<!-- confirmacion_borrar_historia.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmación de Borrado de Historia Clínica</title>
+</head>
+<body>
+    <h1>¿Estás seguro de que deseas borrar esta historia clínica?</h1>
+    <a href="{{ url_for('borrar_historia', cedula=cedula) }}">Sí, Borrar</a>
+    <a href="javascript:history.back()">No, Cancelar</a>
+
+    {% if historia_borrada %}
+        <p>Historia clínica con cédula {{ cedula }} ha sido eliminada con éxito.</p>
+        <a href="{{ url_for('index') }}">Volver</a>
+    {% endif %}
+</body>
+</html>

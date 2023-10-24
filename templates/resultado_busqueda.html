@@ -1,0 +1,24 @@
+<!-- resultado_busqueda.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado de la Búsqueda</title>
+</head>
+<body>
+    <h1>Resultado de la Búsqueda</h1>
+    <ul>
+        {% for historia in historias %}
+            <li>
+                <strong>Cédula:</strong> {{ historia[2] }}<br>
+                <strong>Nombre:</strong> {{ historia[1] }}<br>
+                <strong>Dirección:</strong> {{ historia[3] }}<br>
+                <strong>Tratamiento:</strong> {{ historia[4] }}<br>
+                <a href="{{ url_for('confirmar_borrar_historia', cedula=historia[2]) }}">Borrar</a>
+                <a href="{{ url_for('editar_historia', cedula=historia[2]) }}">Editar</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('index') }}">Regresar</a>
+</body>
+</html>

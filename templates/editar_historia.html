@@ -1,0 +1,28 @@
+<!-- editar_historia.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Historia Clínica</title>
+</head>
+<body>
+    <h1>Editar Historia Clínica</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}"><br>
+        Nombre: <input type="text" name="nombre" value="{{ historia[1] if historia else '' }}"><br>
+        Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}"><br>
+        Tratamiento: <input type="text" name="tratamiento" value="{{ historia[4] if historia else '' }}"><br>
+        <input type="submit" value="Actualizar Historia">
+    </form>
+
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>

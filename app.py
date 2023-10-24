@@ -1,0 +1,107 @@
+from flask import Flask, render_template, request, redirect, url_for, flash
+from flaskext.mysql import MySQL
+
+app = Flask(__name__)
+app.secret_key = 'secretkey2023'  # Clave secreta para la sesión
+
+# Configuración de la base de datos
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_DB'] = 'veterinaria'
+
+mysql = MySQL(app)
+
+# Página de inicio
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+# Página para crear una nueva historia clínica
+@app.route('/nueva_historia', methods=['GET', 'POST'])
+def nueva_historia():
+    if request.method == 'POST':
+        cedula = request.form['cedula']
+        nombre = request.form['nombre']
+        direccion = request.form['direccion']
+        tratamiento = request.form['tratamiento']
+
+        cursor = mysql.get_db().cursor()
+        cursor.execute("INSERT INTO historia (cedula, nombre, direccion, tratamiento) VALUES (%s, %s, %s, %s)",
+                       (cedula, nombre, direccion, tratamiento))
+        mysql.get_db().commit()
+        cursor.close()
+
+        flash('Historia creada exitosamente', 'success')
+        return redirect(url_for('historia_creada'))  # Redirige al usuario a la nueva página
+
+    return render_template('nueva_historia.html')
+
+# Nueva ruta para mostrar la página de historia creada con éxito
+@app.route('/historia_creada')
+def historia_creada():
+    return render_template('historia_creada.html')
+
+# Página para buscar historias clínicas por cédula
+@app.route('/buscar_historia', methods=['GET', 'POST'])
+def buscar_historia():
+    if request.method == 'POST':
+        cedula = request.form['cedula']
+
+        cursor = mysql.get_db().cursor()
+        cursor.execute("SELECT * FROM historia WHERE cedula = %s", (cedula,))
+        data = cursor.fetchall()
+        cursor.close()
+
+        return render_template('resultado_busqueda.html', historias=data)
+
+    return render_template('buscar_historia.html')
+
+# Ruta para mostrar la página de confirmación de borrado
+@app.route('/confirmar_borrar_historia/<int:cedula>')
+def confirmar_borrar_historia(cedula):
+    historia_borrada = False  # Inicialmente, la historia no ha sido borrada
+    return render_template('confirmacion_borrar_historia.html', cedula=cedula, historia_borrada=historia_borrada)
+
+# Ruta para borrar una historia
+@app.route('/borrar_historia/<int:cedula>')
+def borrar_historia(cedula):
+    cursor = mysql.get_db().cursor()
+    cursor.execute("DELETE FROM historia WHERE cedula = %s", (cedula,))
+    mysql.get_db().commit()
+    cursor.close()
+    historia_borrada = True  # La historia ha sido borrada con éxito
+    return render_template('confirmacion_borrar_historia.html', cedula=cedula, historia_borrada=historia_borrada)
+
+# Ruta para mostrar la página de edición de historia clínica
+@app.route('/editar_historia/<int:cedula>', methods=['GET', 'POST'])
+def editar_historia(cedula):
+    cursor = mysql.get_db().cursor()
+    cursor.execute("SELECT * FROM historia WHERE cedula = %s", (cedula,))
+    historia = cursor.fetchone()
+    cursor.close()
+
+    if request.method == 'POST':
+        cedula = request.form['cedula']
+        nombre = request.form['nombre']
+        direccion = request.form['direccion']
+        tratamiento = request.form['tratamiento']
+
+        cursor = mysql.get_db().cursor()
+        cursor.execute("UPDATE historia SET nombre = %s, direccion = %s, tratamiento = %s WHERE cedula = %s",
+                       (nombre, direccion, tratamiento, cedula))
+        mysql.get_db().commit()
+        cursor.close()
+
+        flash('Los datos de la historia clínica han sido actualizados con éxito', 'success')
+        return redirect(url_for('historia_actualizada'))
+
+    return render_template('editar_historia.html', historia=historia)
+
+# Nueva ruta para mostrar la página de historia actualizada con éxito
+@app.route('/historia_actualizada')
+def historia_actualizada():
+    return render_template('historia_actualizada.html')
+
+if __name__ == '__main__':
+    app.run()

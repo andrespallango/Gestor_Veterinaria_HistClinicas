@@ -1,0 +1,28 @@
+<!-- nueva_historia.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Nueva Historia Clínica</title>
+</head>
+<body>
+    <h1>Crear Historia Clínica</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        Cédula: <input type="text" name="cedula" value=""><br>
+        Nombre: <input type="text" name="nombre" value=""><br>
+        Dirección: <input type="text" name="direccion" value=""><br>
+        Tratamiento: <input type="text" name="tratamiento" value=""><br>
+        <input type="submit" value="Guardar Historia">
+    </form>
+
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>
