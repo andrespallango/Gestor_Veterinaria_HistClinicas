@@ -11,6 +11,7 @@
             <li>
                 <strong>Nombre:</strong> {{ historia[1] }}
                 <strong>Cédula:</strong> {{ historia[2] }}
+                <strong>Tratamiento:</strong> {{ historia[3] }}
                 <a href="{{ url_for('reporte_historia', cedula=historia[2]) }}">Ver Historia Completa</a>
             </li>
         {% endfor %}
