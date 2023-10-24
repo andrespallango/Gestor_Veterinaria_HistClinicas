@@ -1,0 +1,20 @@
+<!-- En error_busqueda.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error en la Búsqueda</title>
+</head>
+<body>
+    <h1>Error en la Búsqueda</h1>
+    <p>No se ha encontrado una historia clínica.</p>
+    
+    {% if crear_nueva %}
+        <p>¿Deseas crear una nueva historia clínica?</p>
+        <a href="{{ url_for('nueva_historia') }}">Sí</a>
+    {% else %}
+        <a href="javascript:history.back()">No</a>
+    {% endif %}
+    
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>

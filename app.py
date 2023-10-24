@@ -1,3 +1,4 @@
+# Importar las bibliotecas necesarias
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flaskext.mysql import MySQL
 
@@ -53,7 +54,10 @@ def buscar_historia():
         data = cursor.fetchall()
         cursor.close()
 
-        return render_template('resultado_busqueda.html', historias=data)
+        if data:
+            return render_template('resultado_busqueda.html', historias=data)
+        else:
+            return render_template('error_busqueda.html', crear_nueva=True)
 
     return render_template('buscar_historia.html')
 
@@ -102,6 +106,16 @@ def editar_historia(cedula):
 @app.route('/historia_actualizada')
 def historia_actualizada():
     return render_template('historia_actualizada.html')
+
+# Ruta para mostrar el reporte de una historia clínica
+@app.route('/reporte_historia/<int:cedula>')
+def reporte_historia(cedula):
+    cursor = mysql.get_db().cursor()
+    cursor.execute("SELECT * FROM historia WHERE cedula = %s", (cedula,))
+    historia = cursor.fetchone()
+    cursor.close()
+
+    return render_template('reporte_historia.html', historia=historia)
 
 if __name__ == '__main__':
     app.run()

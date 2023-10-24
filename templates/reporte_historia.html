@@ -1,0 +1,24 @@
+<!-- reporte_historia.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reporte de Historia Clínica</title>
+</head>
+<body>
+    <h1>Reporte de Historia Clínica</h1>
+
+    {% if historia %}
+        <!-- Aquí muestras los detalles de la historia si se encontró -->
+        <p>Nombre: {{ historia[1] }}</p>
+        <p>Cédula: {{ historia[2] }}</p>
+        <p>Dirección: {{ historia[3] }}</p>
+        <p>Tratamiento: {{ historia[4] }}</p>
+        <a href="{{ url_for('editar_historia', cedula=historia[2]) }}">Editar</a>
+        <a href="{{ url_for('confirmar_borrar_historia', cedula=historia[2]) }}">Borrar</a>
+    {% else %}
+        <!-- Aquí muestras el mensaje si no se encontró la historia -->
+        <p>No se ha encontrado ninguna historia clínica.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>
