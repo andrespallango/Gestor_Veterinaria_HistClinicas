@@ -107,6 +107,15 @@ def editar_historia(cedula):
 def historia_actualizada():
     return render_template('historia_actualizada.html')
 
+
+@app.route('/reporte_completo')
+def reporte_completo():
+    cursor = mysql.get_db().cursor()
+    cursor.execute("SELECT * FROM historia")
+    historias = cursor.fetchall()
+    cursor.close()
+    return render_template('reporte_completo.html', historias=historias)
+
 # Ruta para mostrar el reporte de una historia clínica
 @app.route('/reporte_historia/<int:cedula>')
 def reporte_historia(cedula):

@@ -1,0 +1,29 @@
+/* Estilo para botones */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: 1px solid #3498db; /* Borde del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none;
+    box-shadow: 0px 4px 0px #1f69d7; /* Sombra */
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #1f69d7; /* Color de fondo al pasar el cursor */
+    transform: translateY(3px); /* Efecto de elevación al pasar el cursor */
+}
+
+/* Estilo para botones secundarios (secundary-btn) */
+.secundary-btn {
+    background-color: #e74c3c; /* Cambia el color de fondo */
+    border: 1px solid #e74c3c; /* Cambia el borde */
+    box-shadow: 0px 4px 0px #d43f30; /* Cambia el color de la sombra */
+}
+
+.secundary-btn:hover {
+    background-color: #d43f30; /* Cambia el color de fondo al pasar el cursor */
+}

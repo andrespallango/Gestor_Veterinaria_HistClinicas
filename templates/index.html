@@ -1,12 +1,15 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registro de Historias Clínicas</title>
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Bienvenido al Registro de Historias Clínicas</h1>
-    <a href="{{ url_for('nueva_historia') }}">Crear Nueva Historia</a>
-    <a href="{{ url_for('buscar_historia') }}">Buscar Historia</a>
+    <h1>Ani-Medical Centro Veterinario</h1>
+
+    <a href="{{ url_for('nueva_historia') }}" class="btn">Nueva Historia Clínica</a>
+    <a href="{{ url_for('buscar_historia') }}" class="btn secundary-btn">Buscar Historia Clínica</a>
+    <a href="{{ url_for('reporte_completo') }}" class="btn secundary-btn">Mostrar Todas las Historias Disponibles</a>
+
 </body>
-</html
+</html>
