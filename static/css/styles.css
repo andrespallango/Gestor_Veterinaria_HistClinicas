@@ -66,3 +66,11 @@ h1 {
     font-style: italic; /* Texto en cursiva */
     color: gray; /* Cambia el color del texto */
 }
+
+.input-field {
+    border: 1px solid #ccc; /* Color de borde por defecto */
+}
+
+.input-field:empty {
+    border: 1px solid #ff0000; /* Color de borde rojo cuando está vacío */
+}
