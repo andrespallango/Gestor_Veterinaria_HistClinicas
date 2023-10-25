@@ -33,6 +33,18 @@
     background-color: #ff9d00;
 }
 
+.btn-danger {
+    background-color: #d9534f;
+    border-color: #d9534f;
+    color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Estilo para el efecto "hover" del botón "Sí" */
+.btn-danger:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
 
 /* Estilo para la lista de historias */
 .history-list {
