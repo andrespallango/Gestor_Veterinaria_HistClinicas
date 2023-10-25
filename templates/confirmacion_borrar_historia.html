@@ -12,8 +12,8 @@
     <a href="javascript:history.back()" class="btn secundary-btn">No, Cancelar</a>
 
     {% if historia_borrada %}
-        <p>Historia clínica con cédula {{ cedula }} ha sido eliminada con éxito.</p>
-        <a href="{{ url_for('index') }}">Volver</a>
+        <p>Historia clínica con cédula {{ cedula }} ha sido eliminada con éxito.</p><br><br>
+        <a href="{{ url_for('index') }}" class="btn secundary-btn">Volver</a>
     {% endif %}
 </body>
 </html>
