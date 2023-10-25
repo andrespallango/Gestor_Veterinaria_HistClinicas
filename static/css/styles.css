@@ -1,32 +1,38 @@
-/* Estilo para botones */
+/* Estilo para botones primarios */
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3498db; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    border: 1px solid #3498db; /* Borde del botón */
-    border-radius: 5px; /* Bordes redondeados */
+    background-color: #43b6c9;
+    color: #fff;
+    font-family: 'Myriad Roman', sans-serif; /* Agregar la fuente a los botones primarios */
+    font-weight: bold; /* Texto en negrita */
+    border: 1px solid #43b6c9;
+    border-radius: 5px;
     text-decoration: none;
-    box-shadow: 0px 4px 0px #1f69d7; /* Sombra */
+    box-shadow: 0px 4px 0px #266873;
     transition: background-color 0.3s, transform 0.2s;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #1f69d7; /* Color de fondo al pasar el cursor */
-    transform: translateY(3px); /* Efecto de elevación al pasar el cursor */
+    background-color: #076a7a;
+    transform: translateY(3px);
 }
 
 /* Estilo para botones secundarios (secundary-btn) */
 .secundary-btn {
-    background-color: #e74c3c; /* Cambia el color de fondo */
-    border: 1px solid #e74c3c; /* Cambia el borde */
-    box-shadow: 0px 4px 0px #d43f30; /* Cambia el color de la sombra */
+    background-color: #f9b546;
+    color: #fff; /* Cambia el color del texto a blanco */
+    font-family: 'Myriad Roman', sans-serif; /* Agregar la fuente a los botones secundarios */
+    font-weight: bold; /* Texto en negrita */
+    border: 1px solid #f9b546;
+    box-shadow: 0px 4px 0px #ab7a2b;
 }
 
 .secundary-btn:hover {
-    background-color: #d43f30; /* Cambia el color de fondo al pasar el cursor */
+    background-color: #ff9d00;
 }
+
 
 /* Estilo para la lista de historias */
 .history-list {
@@ -45,4 +51,18 @@
     align-items: center;
     justify-content: center;
     height: 100vh; /* Ajusta esto según tus necesidades para centrar verticalmente */
+}
+
+@font-face {
+    font-family: 'Myriad Roman';
+    src: url('/resources/Myriad Roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Aplicar la fuente a tu elemento h1 (el título) */
+h1 {
+    font-family: 'Myriad Roman', sans-serif;
+    font-style: italic; /* Texto en cursiva */
+    color: gray; /* Cambia el color del texto */
 }

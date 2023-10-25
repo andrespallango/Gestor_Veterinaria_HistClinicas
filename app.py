@@ -18,25 +18,32 @@ mysql = MySQL(app)
 def index():
     return render_template('index.html')
 
-# Página para crear una nueva historia clínica
 @app.route('/nueva_historia', methods=['GET', 'POST'])
 def nueva_historia():
+    error_message = None  # Inicializa el mensaje de error como nulo
+
     if request.method == 'POST':
         cedula = request.form['cedula']
         nombre = request.form['nombre']
         direccion = request.form['direccion']
         tratamiento = request.form['tratamiento']
 
-        cursor = mysql.get_db().cursor()
-        cursor.execute("INSERT INTO historia (cedula, nombre, direccion, tratamiento) VALUES (%s, %s, %s, %s)",
-                       (cedula, nombre, direccion, tratamiento))
-        mysql.get_db().commit()
-        cursor.close()
+        # Verifica que los campos obligatorios estén llenos
+        if not (cedula and nombre and direccion and tratamiento):
+            error_message = 'Por favor, llena todos los campos obligatorios.'
+        else:
+            cursor = mysql.get_db().cursor()
+            cursor.execute("INSERT INTO historia (cedula, nombre, direccion, tratamiento) VALUES (%s, %s, %s, %s)",
+                           (cedula, nombre, direccion, tratamiento))
+            mysql.get_db().commit()
+            cursor.close()
 
-        flash('Historia creada exitosamente', 'success')
-        return redirect(url_for('historia_creada'))  # Redirige al usuario a la nueva página
+            flash('Historia creada exitosamente', 'success')
+            return redirect(url_for('historia_creada'))
 
-    return render_template('nueva_historia.html')
+    return render_template('nueva_historia.html', error_message=error_message)
+
+
 
 # Nueva ruta para mostrar la página de historia creada con éxito
 @app.route('/historia_creada')

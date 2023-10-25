@@ -17,12 +17,16 @@
     {% endwith %}
 
     <form method="POST" action="{{ url_for('nueva_historia') }}">
-        Cédula: <input type="text" name="cedula" value=""><br><br>
-        Nombre: <input type="text" name="nombre" value=""><br><br>
-        Dirección: <input type="text" name="direccion" value=""><br><br>
-        Tratamiento: <input type="text" name="tratamiento" value=""><br><br>
+        Cédula: <input type="text" name="cedula" value="{{ request.form.cedula or '' }}"><br><br>
+        Nombre: <input type="text" name="nombre" value="{{ request.form.nombre or '' }}"><br><br>
+        Dirección: <input type="text" name="direccion" value="{{ request.form.direccion or '' }}"><br><br>
+        Tratamiento: <input type="text" name="tratamiento" value="{{ request.form.tratamiento or '' }}"><br><br>
         <input type="submit" value="Guardar Historia" class="btn"><br><br>
+        {% if error_message %}
+            <div class="alert alert-danger">{{ error_message }}</div>
+        {% endif %}
     </form>
+    
 
     <a href="{{ url_for('index') }}" class="btn secundary-btn">Volver</a>
 </body>
