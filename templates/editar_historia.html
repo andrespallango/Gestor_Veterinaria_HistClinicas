@@ -18,13 +18,13 @@
     {% endwith %}
 
     <form method="POST">
-        Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}"><br>
-        Nombre: <input type="text" name="nombre" value="{{ historia[1] if historia else '' }}"><br>
-        Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}"><br>
-        Tratamiento: <input type="text" name="tratamiento" value="{{ historia[4] if historia else '' }}"><br>
-        <input type="submit" value="Actualizar Historia" class="btn">
+        Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}"><br><br>
+        Nombre: <input type="text" name="nombre" value="{{ historia[1] if historia else '' }}"><br><br>
+        Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}"><br><br>
+        Tratamiento: <input type="text" name="tratamiento" value="{{ historia[4] if historia else '' }}"><br><br>
+        <input type="submit" value="Actualizar Historia" class="btn"><br><br>
     </form>
 
-    <a href="{{ url_for('index') }}" class="btn">Volver</a>
+    <a href="javascript:history.back()" class="btn secundary-btn">Volver</a>
 </body>
 </html>

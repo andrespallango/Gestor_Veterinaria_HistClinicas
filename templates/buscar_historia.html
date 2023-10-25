@@ -4,15 +4,15 @@
 <head>
     <title>Buscar Historia Clínica</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-
 </head>
 <body>
     <h1>Buscar Historia Clínica</h1>
     <form method="POST">
         Cédula: <input type="text" name="cedula"><br>
+        <br>  <!-- Agrega un espacio extra aquí -->
         <input type="submit" value="Buscar Historia" class="btn">
     </form>
-
-    <a href="{{ url_for('index') }}" class="btn secundary-btn">Regresar</a>
+    <br>  <!-- Agrega un espacio extra aquí -->
+    <a href="javascript:history.back()" class="btn secundary-btn">Volver</a>
 </body>
 </html>

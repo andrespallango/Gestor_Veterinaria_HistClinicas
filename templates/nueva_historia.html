@@ -4,7 +4,6 @@
 <head>
     <title>Crear Nueva Historia Clínica</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-
 </head>
 <body>
     <h1>Crear Historia Clínica</h1>
@@ -17,14 +16,14 @@
     {% endif %}
     {% endwith %}
 
-    <form method="POST">
-        Cédula: <input type="text" name="cedula" value=""><br>
-        Nombre: <input type="text" name="nombre" value=""><br>
-        Dirección: <input type="text" name="direccion" value=""><br>
-        Tratamiento: <input type="text" name="tratamiento" value=""><br>
-        <input type="submit" value="Guardar Historia" class="btn">
+    <form method="POST" action="{{ url_for('nueva_historia') }}">
+        Cédula: <input type="text" name="cedula" value=""><br><br>
+        Nombre: <input type="text" name="nombre" value=""><br><br>
+        Dirección: <input type="text" name="direccion" value=""><br><br>
+        Tratamiento: <input type="text" name="tratamiento" value=""><br><br>
+        <input type="submit" value="Guardar Historia" class="btn"><br><br>
     </form>
 
-    <a href="{{ url_for('index') }}">Volver</a>
+    <a href="{{ url_for('index') }}" class="btn secundary-btn">Volver</a>
 </body>
 </html>
