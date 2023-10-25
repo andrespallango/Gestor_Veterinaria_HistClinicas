@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>Resultado de la Búsqueda</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 <body>
     <h1>Resultado de la Búsqueda</h1>
@@ -12,11 +14,11 @@
                 <strong>Nombre:</strong> {{ historia[1] }}
                 <strong>Cédula:</strong> {{ historia[2] }}
                 <strong>Tratamiento:</strong> {{ historia[4] }}
-                <a href="{{ url_for('reporte_historia', cedula=historia[2]) }}">Ver Historia Completa</a>
+                <a href="{{ url_for('reporte_historia', cedula=historia[2]) }}"class="btn secundary-btn">Ver Historia Completa</a>
             </li>
         {% endfor %}
     </ul>
 
-    <a href="{{ url_for('index') }}">Regresar</a>
+    <a href="{{ url_for('index') }}"class="btn">Regresar</a>
 </body>
 </html>

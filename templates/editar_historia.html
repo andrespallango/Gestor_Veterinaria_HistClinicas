@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>Editar Historia Clínica</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 <body>
     <h1>Editar Historia Clínica</h1>
@@ -20,9 +22,9 @@
         Nombre: <input type="text" name="nombre" value="{{ historia[1] if historia else '' }}"><br>
         Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}"><br>
         Tratamiento: <input type="text" name="tratamiento" value="{{ historia[4] if historia else '' }}"><br>
-        <input type="submit" value="Actualizar Historia">
+        <input type="submit" value="Actualizar Historia" class="btn">
     </form>
 
-    <a href="{{ url_for('index') }}">Volver</a>
+    <a href="{{ url_for('index') }}" class="btn">Volver</a>
 </body>
 </html>

@@ -27,3 +27,22 @@
 .secundary-btn:hover {
     background-color: #d43f30; /* Cambia el color de fondo al pasar el cursor */
 }
+
+/* Estilo para la lista de historias */
+.history-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilo para cada elemento de la lista (historia) */
+.history-item {
+    margin-bottom: 20px; /* Margen inferior para separar las historias */
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ajusta esto según tus necesidades para centrar verticalmente */
+}

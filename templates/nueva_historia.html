@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>Crear Nueva Historia Clínica</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
 </head>
 <body>
     <h1>Crear Historia Clínica</h1>
@@ -20,7 +22,7 @@
         Nombre: <input type="text" name="nombre" value=""><br>
         Dirección: <input type="text" name="direccion" value=""><br>
         Tratamiento: <input type="text" name="tratamiento" value=""><br>
-        <input type="submit" value="Guardar Historia">
+        <input type="submit" value="Guardar Historia" class="btn">
     </form>
 
     <a href="{{ url_for('index') }}">Volver</a>
