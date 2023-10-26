@@ -1,12 +1,5 @@
-<!-- editar_historia.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Editar Historia Clínica</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>Editar Historia Clínica</h1>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -23,10 +16,11 @@
         Nombre: <input type="text" name="nombre" value="{{ historia[1] if historia else '' }}"><br><br>
         Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}"><br><br>
         Tratamiento: <input type="text" name="tratamiento" value="{{ historia[4] if historia else '' }}"><br><br>
-        <input type="submit" value="Actualizar Historia" class="btn"><br><br>
+        
+        <!-- Botones dentro de un div para alinearlos -->
+        <div class="button-container">
+            <input type="submit" value="Actualizar Historia" class="btn"> <!-- Estilo del botón primario -->
+            <a href="javascript:history.back()" class="btn secundary-btn">Volver</a> <!-- Estilo del botón secundario -->
+        </div>
     </form>
-    
-
-    <a href="javascript:history.back()" class="btn secundary-btn">Volver</a>
-</body>
-</html>
+{% endblock %}

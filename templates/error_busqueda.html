@@ -1,22 +1,17 @@
-<!-- En error_busqueda.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Error en la Búsqueda</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>Error en la Búsqueda</h1>
     <p>No se ha encontrado una historia clínica.</p>
     
     {% if crear_nueva %}
         <p>¿Deseas crear una nueva historia clínica?</p>
-        <a href="{{ url_for('nueva_historia') }}" class="btn">Sí</a>
+        <div class="button-container">
+            <a href="{{ url_for('nueva_historia') }}" class="btn">Sí</a>
+            <a href="javascript:history.back()" class="btn secundary-btn">No</a>
+        </div>
     {% else %}
-        <a href="javascript:history.back()" class="btn secundary-btn">No</a>
+        <div class="button-container">
+            <a href="javascript:history.back()" class="btn secundary-btn">Volver</a>
+        </div>
     {% endif %}
-    
-    <a href="{{ url_for('index') }}" class="btn secundary-btn">Volver</a>
-</body>
-</html>
+{% endblock %}

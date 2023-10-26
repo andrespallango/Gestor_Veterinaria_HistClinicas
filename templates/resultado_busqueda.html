@@ -1,12 +1,5 @@
-<!-- resultado_busqueda.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Resultado de la Búsqueda</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>Resultado de la Búsqueda</h1>
     <ul>
         {% for historia in historias %}
@@ -14,11 +7,10 @@
                 <strong>Nombre:</strong> {{ historia[1] }}
                 <strong>Cédula:</strong> {{ historia[2] }}
                 <strong>Tratamiento:</strong> {{ historia[4] }}
-                <a href="{{ url_for('reporte_historia', cedula=historia[2]) }}"class="btn secundary-btn">Ver Historia Completa</a><br><br>
+                <a href="{{ url_for('reporte_historia', cedula=historia[2]) }}" class="btn secondary-btn">Ver Historia Completa</a><br><br>
             </li>
         {% endfor %}
     </ul>
-
-    <a href="{{ url_for('index') }}"class="btn">Regresar</a>
-</body>
-</html>
+    
+    <a href="{{ url_for('index') }}" class="btn">Regresar</a>
+{% endblock %}

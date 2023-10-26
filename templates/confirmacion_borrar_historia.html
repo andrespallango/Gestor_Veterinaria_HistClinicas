@@ -1,11 +1,5 @@
-<!-- confirmacion_borrar_historia.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Confirmación de Borrado de Historia Clínica</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>Confirmación de Borrado de Historia Clínica</h1>
 
     {% if historia_borrada %}
@@ -13,8 +7,9 @@
         <a href="{{ url_for('index') }}" class="btn secondary-btn">Regresar</a>
     {% else %}
         <div class="alert alert-warning">¿Estás seguro de que deseas borrar esta historia clínica?</div>
-        <a href="{{ url_for('borrar_historia', cedula=cedula) }}" class="btn btn-danger">Sí</a>
-        <a href="{{ url_for('index') }}" class="btn secondary-btn">No</a>
+        <div class="button-container">
+            <a href="{{ url_for('borrar_historia', cedula=cedula) }}" class="btn btn-danger">Sí</a>
+            <a href="{{ url_for('index') }}" class="btn secondary-btn">No</a>
+        </div>
     {% endif %}
-</body>
-</html>
+{% endblock %}

@@ -1,13 +1,6 @@
-<!-- historia_creada.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Historia Creada con Éxito</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>Historia Creada con Éxito</h1>
     <p>La historia clínica ha sido creada exitosamente.</p>
     <a href="{{ url_for('index') }}" class="btn">Volver a la página de inicio</a>
-</body>
-</html>
+{% endblock %}
