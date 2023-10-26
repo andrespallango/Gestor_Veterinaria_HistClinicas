@@ -1,12 +1,5 @@
-<!-- nueva_historia.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Crear Nueva Historia Clínica</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>Crear Historia Clínica</h1>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -21,13 +14,17 @@
         Cédula: <input type="text" name="cedula" value="{{ request.form.cedula or '' }}" class="validate-input"><br><br>
         Nombre: <input type="text" name="nombre" value="{{ request.form.nombre or '' }}" class="validate-input"><br><br>
         Dirección: <input type="text" name="direccion" value="{{ request.form.direccion or '' }}" class="validate-input"><br><br>
-        Tratamiento: <input type="text" name="tratamiento" value="{{ request.form.tratamiento or '' }}" class="validate-input"><br><br>
-        <input type="submit" value="Guardar Historia" class="btn btn-save"><br><br>
+        Tratamiento: <input type="text" name="tratamiento" value="{{ request.form.tratamiento or '' }}" class="validate-input">
+        
+        <br><br> <!-- Agregar espacio extra -->
+        
+        <div class="button-container">
+            <input type="submit" value="Guardar Historia" class="btn btn-save">
+            <a href="{{ url_for('index') }}" class="btn secundary-btn">Volver</a>
+        </div>
+        
         {% if error_message %}
             <div class="alert alert-danger">{{ error_message }}</div>
         {% endif %}
     </form>
-
-    <a href="{{ url_for('index') }}" class="btn secundary-btn">Volver</a>
-</body>
-</html>
+{% endblock %}

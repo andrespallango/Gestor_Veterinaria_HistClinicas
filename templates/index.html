@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Bienvenido a Ani-Medical</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body class="center-content">
-    <!-- Logo de la veterinaria -->
-    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo de Ani-Medical Centro Veterinario">
-    
-    <h1>Registro de Historias Clínicas</h1>
-    
+{% extends "base.html" %}
+
+{% block content %}
     <div class="button-container">
         <a href="{{ url_for('nueva_historia') }}" class="btn">Nueva Historia Clínica</a>
         <a href="{{ url_for('buscar_historia') }}" class="btn secundary-btn">Buscar Historia Clínica</a>
         <a href="{{ url_for('reporte_completo') }}" class="btn secundary-btn">Mostrar Todas las Historias Disponibles</a>
     </div>
-</body>
-</html>
+{% endblock %}
