@@ -12,10 +12,10 @@
 
     <form method="POST">
         <input type="hidden" name="id" value="{{ historia[0] if historia else '' }}">
-        Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}"><br><br>
-        Nombre: <input type="text" name="nombre" value="{{ historia[1] if historia else '' }}"><br><br>
-        Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}"><br><br>
-        Tratamiento: <input type="text" name="tratamiento" value="{{ historia[4] if historia else '' }}"><br><br>
+        Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}" class="validate-input" required><br><br>
+        Nombre: <input type="text" name="nombre" value="{{ historia[1] if historia else '' }}" class="validate-input" required><br><br>
+        Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}" class="validate-input" required><br><br>
+        Tratamiento: <input type="text" name="tratamiento" value="{{ historia[4] if historia else '' }}" class="validate-input" required><br><br>
         
         <!-- Botones dentro de un div para alinearlos -->
         <div class="button-container">
@@ -23,4 +23,29 @@
             <a href="javascript:history.back()" class="btn secundary-btn">Volver</a> <!-- Estilo del botón secundario -->
         </div>
     </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtenemos una referencia al formulario
+            const form = document.querySelector('form');
+
+            // Asociamos un evento al formulario para validar los campos antes de enviar el formulario
+            form.addEventListener('submit', function (event) {
+                // Obtenemos una referencia a todos los campos de entrada de texto
+                const inputFields = document.querySelectorAll('.validate-input');
+
+                let hasEmptyFields = false;
+                inputFields.forEach(function (input) {
+                    if (input.value.trim() === '') {
+                        hasEmptyFields = true;
+                        input.classList.add('error-field'); // Agregar la clase 'error-field' para resaltar el campo vacío.
+                    }
+                });
+
+                if (hasEmptyFields) {
+                    event.preventDefault();
+                    alert('Por favor, llena todos los campos obligatorios.');
+                }
+            });
+        });
+    </script>
 {% endblock %}

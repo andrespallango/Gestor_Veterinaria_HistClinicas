@@ -91,3 +91,9 @@ h1 {
 .logo {
     width: 250px; /* Ajusta el tamaño según tus necesidades */
 }
+
+/* Agrega un estilo para resaltar los campos vacíos en rojo */
+.error-field {
+    border: 1px solid #ff0000; /* Borde rojo */
+    background-color: #ffe6e6; /* Fondo rojo claro (puedes ajustar el color según tus preferencias) */
+}

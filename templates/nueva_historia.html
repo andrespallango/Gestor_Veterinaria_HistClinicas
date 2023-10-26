@@ -9,14 +9,13 @@
         {% endfor %}
     {% endif %}
     {% endwith %}
-
     <form method="POST" action="{{ url_for('nueva_historia') }}">
-        Cédula: <input type="text" name="cedula" value="{{ request.form.cedula or '' }}" class="validate-input"><br><br>
-        Nombre: <input type="text" name="nombre" value="{{ request.form.nombre or '' }}" class="validate-input"><br><br>
-        Dirección: <input type="text" name="direccion" value="{{ request.form.direccion or '' }}" class="validate-input"><br><br>
-        Tratamiento: <input type="text" name="tratamiento" value="{{ request.form.tratamiento or '' }}" class="validate-input">
+        Cédula: <input type="text" name="cedula" value="{{ request.form.cedula or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
+        Nombre: <input type="text" name="nombre" value="{{ request.form.nombre or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
+        Dirección: <input type="text" name="direccion" value="{{ request.form.direccion or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
+        Tratamiento: <input type="text" name="tratamiento" value="{{ request.form.tratamiento or '' }}" class="validate-input{{ ' error-field' if error_message }}" required>
         
-        <br><br> <!-- Agregar espacio extra -->
+        <br><br>
         
         <div class="button-container">
             <input type="submit" value="Guardar Historia" class="btn btn-save">
@@ -27,4 +26,6 @@
             <div class="alert alert-danger">{{ error_message }}</div>
         {% endif %}
     </form>
+    
+
 {% endblock %}

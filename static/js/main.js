@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let hasEmptyFields = false;
         inputFields.forEach(function (input) {
-            if (input.value === '') {
+            if (input.value.trim() === '') {
                 hasEmptyFields = true;
+                input.classList.add('error-field'); // Agregar la clase 'error-field' para resaltar el campo vacío.
             }
         });
 
