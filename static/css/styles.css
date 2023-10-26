@@ -75,7 +75,7 @@
 /* Aplicar la fuente a tu elemento h1 (el título) */
 h1 {
     font-family: 'Myriad Roman', sans-serif;
-    font-style: italic; /* Texto en cursiva */
+    font-style: bold; /* Texto en cursiva */
     color: gray; /* Cambia el color del texto */
 }
 

@@ -93,14 +93,15 @@ def editar_historia(cedula):
     cursor.close()
 
     if request.method == 'POST':
+        id = request.form['id']
         cedula = request.form['cedula']
         nombre = request.form['nombre']
         direccion = request.form['direccion']
         tratamiento = request.form['tratamiento']
 
         cursor = mysql.get_db().cursor()
-        cursor.execute("UPDATE historia SET nombre = %s, direccion = %s, tratamiento = %s WHERE cedula = %s",
-                       (nombre, direccion, tratamiento, cedula))
+        cursor.execute("UPDATE historia SET nombre = %s, direccion = %s, tratamiento = %s, cedula = %s WHERE id = %s",
+                       (nombre, direccion, tratamiento, cedula, id))
         mysql.get_db().commit()
         cursor.close()
 
@@ -108,6 +109,7 @@ def editar_historia(cedula):
         return redirect(url_for('historia_actualizada'))
 
     return render_template('editar_historia.html', historia=historia)
+
 
 # Nueva ruta para mostrar la página de historia actualizada con éxito
 @app.route('/historia_actualizada')

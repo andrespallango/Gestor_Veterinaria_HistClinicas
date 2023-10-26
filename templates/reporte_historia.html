@@ -4,20 +4,20 @@
 <head>
     <title>Reporte de Historia Clínica</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-
 </head>
 <body>
     <h1>Reporte de Historia Clínica</h1>
 
     {% if historia %}
         <!-- Aquí muestras los detalles de la historia si se encontró -->
+        <input type="hidden" name="id" value="{{ historia[0] }}">  <!-- Campo oculto -->
         <p>Nombre: {{ historia[1] }}</p>
         <p>Cédula: {{ historia[2] }}</p>
         <p>Dirección: {{ historia[3] }}</p>
         <p>Tratamiento: {{ historia[4] }}</p>
         <a href="{{ url_for('editar_historia', cedula=historia[2]) }}" class="btn">Editar</a>
         <a href="{{ url_for('confirmar_borrar_historia', cedula=historia[2]) }}" class="btn secundary-btn">Borrar</a>
-        {% else %}
+    {% else %}
         <!-- Aquí muestras el mensaje si no se encontró la historia -->
         <p>No se ha encontrado ninguna historia clínica.</p>
     {% endif %}
