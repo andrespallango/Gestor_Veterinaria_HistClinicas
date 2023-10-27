@@ -55,7 +55,16 @@
 /* Estilo para cada elemento de la lista (historia) */
 .history-item {
     margin-bottom: 20px; /* Margen inferior para separar las historias */
+    display: flex; /* Usar Flexbox para alinear elementos horizontalmente */
+    justify-content: space-between; /* Coloca los elementos al principio y al final del contenedor */
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
 }
+
+/* Estilo para el botón "Ver Historia Completa" */
+.history-item .btn {
+    margin-left: 20px; /* Mueve el botón hacia la derecha */
+}
+
 
 .center-content {
     display: flex;
@@ -96,4 +105,27 @@ h1 {
 .error-field {
     border: 1px solid #ff0000; /* Borde rojo */
     background-color: #ffe6e6; /* Fondo rojo claro (puedes ajustar el color según tus preferencias) */
+}
+
+/* Estilo para la línea separadora */
+hr {
+    border: 1px solid #ccc; /* Puedes ajustar el color de la línea separadora */
+    margin: 10px 0;
+}
+
+/* Estilos para la tabla */
+.info-table {
+    width: 100%; /* Ancho total de la tabla */
+    border-collapse: collapse; /* Colapsar los bordes de las celdas */
+    margin-bottom: 10px; /* Espacio entre la tabla y el botón "Ver Historia Completa" */
+}
+
+/* Estilos para las celdas de la tabla */
+.info-table tr {
+    border: 1px solid #ccc; /* Borde para cada fila */
+}
+
+.info-table td {
+    padding: 5px; /* Espacio interno en las celdas */
+    border: 1px solid #ccc; /* Borde para cada celda */
 }
