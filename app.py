@@ -69,26 +69,29 @@ def buscar_historia():
     return render_template('buscar_historia.html')
 
 # Ruta para mostrar la página de confirmación de borrado
-@app.route('/confirmar_borrar_historia/<int:cedula>')
-def confirmar_borrar_historia(cedula):
+@app.route('/confirmar_borrar_historia/<int:id>')
+def confirmar_borrar_historia(id):
     historia_borrada = False  # Inicialmente, la historia no ha sido borrada
-    return render_template('confirmacion_borrar_historia.html', cedula=cedula, historia_borrada=historia_borrada)
+    return render_template('confirmacion_borrar_historia.html', id=id, historia_borrada=historia_borrada)
+
 
 # Ruta para borrar una historia
-@app.route('/borrar_historia/<int:cedula>')
-def borrar_historia(cedula):
+@app.route('/borrar_historia/<int:id>')
+def borrar_historia(id):
     cursor = mysql.get_db().cursor()
-    cursor.execute("DELETE FROM historia WHERE cedula = %s", (cedula,))
+    cursor.execute("DELETE FROM historia WHERE id = %s", (id,))
     mysql.get_db().commit()
     cursor.close()
     historia_borrada = True  # La historia ha sido borrada con éxito
-    return render_template('confirmacion_borrar_historia.html', cedula=cedula, historia_borrada=historia_borrada)
+    return render_template('confirmacion_borrar_historia.html', id=id, historia_borrada=historia_borrada)
+
+
 
 # Ruta para mostrar la página de edición de historia clínica
-@app.route('/editar_historia/<int:cedula>', methods=['GET', 'POST'])
-def editar_historia(cedula):
+@app.route('/editar_historia/<int:id>', methods=['GET', 'POST'])
+def editar_historia(id):
     cursor = mysql.get_db().cursor()
-    cursor.execute("SELECT * FROM historia WHERE cedula = %s", (cedula,))
+    cursor.execute("SELECT * FROM historia WHERE id = %s", (id,))
     historia = cursor.fetchone()
     cursor.close()
 
@@ -111,10 +114,12 @@ def editar_historia(cedula):
     return render_template('editar_historia.html', historia=historia)
 
 
-# Nueva ruta para mostrar la página de historia actualizada con éxito
+
+# Nueva ruta para mostrar la página de historia actualizada con éxitozz
 @app.route('/historia_actualizada')
 def historia_actualizada():
     return render_template('historia_actualizada.html')
+
 
 
 @app.route('/reporte_completo')
@@ -126,14 +131,15 @@ def reporte_completo():
     return render_template('reporte_completo.html', historias=historias)
 
 # Ruta para mostrar el reporte de una historia clínica
-@app.route('/reporte_historia/<int:cedula>')
-def reporte_historia(cedula):
+@app.route('/reporte_historia/<int:id>')
+def reporte_historia(id):
     cursor = mysql.get_db().cursor()
-    cursor.execute("SELECT * FROM historia WHERE cedula = %s", (cedula,))
+    cursor.execute("SELECT * FROM historia WHERE id = %s", (id,))
     historia = cursor.fetchone()
     cursor.close()
 
     return render_template('reporte_historia.html', historia=historia)
+
 
 if __name__ == '__main__':
     app.run()

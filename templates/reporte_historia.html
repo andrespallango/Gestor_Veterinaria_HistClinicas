@@ -1,24 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Reporte de Historia Clínica</h1>
+<h1>Reporte de Historia Clínica</h1>
 
-    {% if historia %}
-        <!-- Aquí muestras los detalles de la historia si se encontró -->
-        <input type="hidden" name="id" value="{{ historia[0] }}">  <!-- Campo oculto -->
-        <p>Nombre: {{ historia[1] }}</p>
-        <p>Cédula: {{ historia[2] }}</p>
-        <p>Dirección: {{ historia[3] }}</p>
-        <p>Tratamiento: {{ historia[4] }}</p>
+{% if historia %}
+    <!-- Aquí muestras los detalles de la historia si se encontró -->
+    <input type="hidden" name="id" value="{{ historia[0] }}">  <!-- Campo oculto -->
+    <p>Nombre: {{ historia[1] }}</p>
+    <p>Cédula: {{ historia[2] }}</p>
+    <p>Dirección: {{ historia[3] }}</p>
+    <p>Tratamiento: {{ historia[4] }}</p>
 
-        <div class="button-container">
-            <a href="{{ url_for('editar_historia', cedula=historia[2]) }}" class="btn btn-primary">Editar</a> <!-- Estilo de botón primario -->
-            <a href="{{ url_for('confirmar_borrar_historia', cedula=historia[2]) }}" class="btn btn-danger">Borrar</a> <!-- Estilo de botón secundario -->
-        </div>
-        <br> <!-- Agrega un espacio extra aquí -->
+    <div class="button-container">
+        <a href="{{ url_for('editar_historia', id=historia[0]) }}" class="btn btn-primary">Editar</a>
+        <a href="{{ url_for('confirmar_borrar_historia', id=historia[0]) }}" class="btn btn-danger">Borrar</a>
+    </div>
+    
+    <br> <!-- Agrega un espacio extra aquí -->
 
-    {% else %}
-        <!-- Aquí muestras el mensaje si no se encontró la historia -->
-        <p>No se ha encontrado ninguna historia clínica.</p>
-    {% endif %}
-    <a href="javascript:history.back()" class="btn secundary-btn">Volver</a> <!-- Estilo de botón secundario -->
+{% else %}
+    <!-- Aquí muestras el mensaje si no se encontró la historia -->
+    <p>No se ha encontrado ninguna historia clínica.</p>
+{% endif %}
+<a href="javascript:history.back()" class="btn secundary-btn">Volver</a> <!-- Estilo de botón secundario -->
+
 {% endblock %}
