@@ -1,17 +1,31 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <h1>Resultado de la Búsqueda</h1>
-    <ul>
+    <h1>Resultados de la Búsqueda de Historias Clínicas</h1>
+    <ul class="history-list">
         {% for historia in historias %}
-            <li>
-                <strong>Nombre:</strong> {{ historia[1] }}
-                <strong>Cédula:</strong> {{ historia[2] }}
-                <strong>Tratamiento:</strong> {{ historia[4] }}
-                <input type="hidden" name="id" value="{{ historia[0] }}">  <!-- Campo oculto para el ID -->
-                <a href="{{ url_for('reporte_historia', id=historia[0]) }}" class="btn secondary-btn">Ver Historia Completa</a><br><br>
+            <li class="history-item">
+                <table class="info-table">
+                    <tr>
+                        <td><strong>Nombre:</strong></td>
+                        <td>{{ historia[1] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cédula:</strong></td>
+                        <td>{{ historia[2] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dirección:</strong></td>
+                        <td>{{ historia[3] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tratamiento:</strong></td>
+                        <td>{{ historia[4] }}</td>
+                    </tr>
+                </table>
+                <a href="{{ url_for('reporte_historia', id=historia[0]) }}" class="btn secondary-btn">Ver Historia Completa</a>
             </li>
         {% endfor %}
-    </ul>    
-    
-    <a href="{{ url_for('index') }}" class="btn">Regresar</a>
+    </ul>
+    <a href="{{ url_for('index') }}" class="btn secondary-btn">Regresar</a>
 {% endblock %}
