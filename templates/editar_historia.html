@@ -13,9 +13,9 @@
     <form method="POST">
         <input type="hidden" name="id" value="{{ historia[0] if historia else '' }}">
         Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}" class="validate-input" required><br><br>
-        Nombre: <input type="text" name="nombre" value="{{ historia[1] if historia else '' }}" class="validate-input" required><br><br>
+        Propietario: <input type="text" name="propietario" value="{{ historia[1] if historia else '' }}" class="validate-input" required><br><br>
         Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}" class="validate-input" required><br><br>
-        Tratamiento: <input type="text" name="tratamiento" value="{{ historia[4] if historia else '' }}" class="validate-input" required><br><br>
+        Médico Responsable: <input type="text" name="medico_responsable" value="{{ historia[4] if historia else '' }}" class="validate-input" required><br><br>
         
         <!-- Botones dentro de un div para alinearlos -->
         <div class="button-container">

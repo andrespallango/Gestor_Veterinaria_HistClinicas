@@ -24,21 +24,20 @@ def nueva_historia():
 
     if request.method == 'POST':
         cedula = request.form['cedula']
-        nombre = request.form['nombre']
+        propietario = request.form['propietario']
         direccion = request.form['direccion']
-        tratamiento = request.form['tratamiento']
+        medico_responsable = request.form['medico_responsable']
 
         # Verifica que los campos obligatorios estén llenos
-        if not (cedula and nombre and direccion and tratamiento):
+        if not (cedula and propietario and direccion and medico_responsable):
             error_message = 'Por favor, llena todos los campos obligatorios.'
         else:
             cursor = mysql.get_db().cursor()
-            cursor.execute("INSERT INTO historia (cedula, nombre, direccion, tratamiento) VALUES (%s, %s, %s, %s)",
-                           (cedula, nombre, direccion, tratamiento))
+            cursor.execute("INSERT INTO historia (cedula, propietario, direccion, medico_responsable) VALUES (%s, %s, %s, %s)",
+                           (cedula, propietario, direccion, medico_responsable))
             mysql.get_db().commit()
             cursor.close()
 
-            flash('Historia creada exitosamente', 'success')
             return redirect(url_for('historia_creada'))
 
     return render_template('nueva_historia.html', error_message=error_message)
@@ -98,24 +97,24 @@ def editar_historia(id):
     if request.method == 'POST':
         id = request.form['id']
         cedula = request.form['cedula']
-        nombre = request.form['nombre']
+        propietario = request.form['propietario']
         direccion = request.form['direccion']
-        tratamiento = request.form['tratamiento']
+        medico_responsable = request.form['medico_responsable']
 
         cursor = mysql.get_db().cursor()
-        cursor.execute("UPDATE historia SET nombre = %s, direccion = %s, tratamiento = %s, cedula = %s WHERE id = %s",
-                       (nombre, direccion, tratamiento, cedula, id))
+        cursor.execute("UPDATE historia SET propietario = %s, direccion = %s, medico_responsable = %s, cedula = %s WHERE id = %s",
+                       (propietario, direccion, medico_responsable, cedula, id))
         mysql.get_db().commit()
         cursor.close()
 
-        flash('Los datos de la historia clínica han sido actualizados con éxito', 'success')
+
         return redirect(url_for('historia_actualizada'))
 
     return render_template('editar_historia.html', historia=historia)
 
 
 
-# Nueva ruta para mostrar la página de historia actualizada con éxitozz
+# Nueva ruta para mostrar la página de historia actualizada con éxito
 @app.route('/historia_actualizada')
 def historia_actualizada():
     return render_template('historia_actualizada.html')
