@@ -13,7 +13,9 @@
         Cédula: <input type="text" name="cedula" value="{{ request.form.cedula or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
         Propietario: <input type="text" name="propietario" value="{{ request.form.propietario or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
         Dirección: <input type="text" name="direccion" value="{{ request.form.direccion or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
-        Médico Responsable: <input type="text" name="medico_responsable" value="{{ request.form.medico_responsable or '' }}" class="validate-input{{ ' error-field' if error_message }}" required>
+        Médico Responsable: <input type="text" name="medico_responsable" value="{{ request.form.medico_responsable or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
+        Fecha de Creación: <input type="date" name="fecha_creacion" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
+        Teléfono: <input type="text" name="telefono" value="{{ request.form.telefono or '' }}" class="validate-input{{ ' error-field' if error_message }}"><br><br>  
         
         <br><br>
         

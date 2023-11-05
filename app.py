@@ -27,20 +27,23 @@ def nueva_historia():
         propietario = request.form['propietario']
         direccion = request.form['direccion']
         medico_responsable = request.form['medico_responsable']
+        fecha_creacion = request.form['fecha_creacion']
+        telefono = request.form['telefono'] 
 
         # Verifica que los campos obligatorios estén llenos
-        if not (cedula and propietario and direccion and medico_responsable):
+        if not (cedula and propietario and direccion and medico_responsable and fecha_creacion and telefono):
             error_message = 'Por favor, llena todos los campos obligatorios.'
         else:
             cursor = mysql.get_db().cursor()
-            cursor.execute("INSERT INTO historia (cedula, propietario, direccion, medico_responsable) VALUES (%s, %s, %s, %s)",
-                           (cedula, propietario, direccion, medico_responsable))
+            cursor.execute("INSERT INTO historia (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono) VALUES (%s, %s, %s, %s, %s, %s)",
+                           (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono))
             mysql.get_db().commit()
             cursor.close()
 
             return redirect(url_for('historia_creada'))
 
     return render_template('nueva_historia.html', error_message=error_message)
+
 
 
 
@@ -100,17 +103,20 @@ def editar_historia(id):
         propietario = request.form['propietario']
         direccion = request.form['direccion']
         medico_responsable = request.form['medico_responsable']
+        fecha_creacion = request.form['fecha_creacion']  
+        telefono = request.form['telefono']  
 
         cursor = mysql.get_db().cursor()
-        cursor.execute("UPDATE historia SET propietario = %s, direccion = %s, medico_responsable = %s, cedula = %s WHERE id = %s",
-                       (propietario, direccion, medico_responsable, cedula, id))
+        cursor.execute("UPDATE historia SET propietario = %s, direccion = %s, medico_responsable = %s, cedula = %s, fecha_creacion = %s, telefono = %s WHERE id = %s",
+                       (propietario, direccion, medico_responsable, cedula, fecha_creacion, telefono, id))
         mysql.get_db().commit()
         cursor.close()
-
 
         return redirect(url_for('historia_actualizada'))
 
     return render_template('editar_historia.html', historia=historia)
+
+
 
 
 

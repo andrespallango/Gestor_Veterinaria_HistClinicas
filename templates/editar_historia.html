@@ -16,7 +16,9 @@
         Propietario: <input type="text" name="propietario" value="{{ historia[1] if historia else '' }}" class="validate-input" required><br><br>
         Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}" class="validate-input" required><br><br>
         Médico Responsable: <input type="text" name="medico_responsable" value="{{ historia[4] if historia else '' }}" class="validate-input" required><br><br>
-        
+        Fecha de Creación: <input type="date" name="fecha_creacion" value="{{ historia[5] or '' }}" class="validate-input">
+        Telefono: <input type="text" name="telefono" value="{{ historia[6] if historia else '' }}" class="validate-input"><br><br>
+
         <!-- Botones dentro de un div para alinearlos -->
         <div class="button-container">
             <input type="submit" value="Actualizar Historia" class="btn"> <!-- Estilo del botón primario -->
