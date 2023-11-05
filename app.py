@@ -28,21 +28,29 @@ def nueva_historia():
         direccion = request.form['direccion']
         medico_responsable = request.form['medico_responsable']
         fecha_creacion = request.form['fecha_creacion']
-        telefono = request.form['telefono'] 
+        telefono = request.form['telefono']
+        nombre_paciente = request.form['nombre_paciente']
+        fecha_nacimiento = request.form['fecha_nacimiento']
+        especie = request.form['especie']
+        raza = request.form['raza']
+        sexo = request.form['sexo']
+        color = request.form['color']
 
         # Verifica que los campos obligatorios estén llenos
-        if not (cedula and propietario and direccion and medico_responsable and fecha_creacion and telefono):
+        if not (cedula and propietario and direccion and medico_responsable and fecha_creacion and telefono and
+                nombre_paciente and especie and sexo):
             error_message = 'Por favor, llena todos los campos obligatorios.'
         else:
             cursor = mysql.get_db().cursor()
-            cursor.execute("INSERT INTO historia (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono) VALUES (%s, %s, %s, %s, %s, %s)",
-                           (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono))
+            cursor.execute("INSERT INTO historia (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                           (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color))
             mysql.get_db().commit()
             cursor.close()
 
             return redirect(url_for('historia_creada'))
 
     return render_template('nueva_historia.html', error_message=error_message)
+
 
 
 
@@ -104,17 +112,24 @@ def editar_historia(id):
         direccion = request.form['direccion']
         medico_responsable = request.form['medico_responsable']
         fecha_creacion = request.form['fecha_creacion']  
-        telefono = request.form['telefono']  
+        telefono = request.form['telefono']
+        nombre_paciente = request.form['nombre_paciente']
+        fecha_nacimiento = request.form['fecha_nacimiento']
+        especie = request.form['especie']
+        raza = request.form['raza']
+        sexo = request.form['sexo']
+        color = request.form['color']
 
         cursor = mysql.get_db().cursor()
-        cursor.execute("UPDATE historia SET propietario = %s, direccion = %s, medico_responsable = %s, cedula = %s, fecha_creacion = %s, telefono = %s WHERE id = %s",
-                       (propietario, direccion, medico_responsable, cedula, fecha_creacion, telefono, id))
+        cursor.execute("UPDATE historia SET propietario = %s, direccion = %s, medico_responsable = %s, cedula = %s, fecha_creacion = %s, telefono = %s, nombre_paciente = %s, fecha_nacimiento = %s, especie = %s, raza = %s, sexo = %s, color = %s WHERE id = %s",
+                       (propietario, direccion, medico_responsable, cedula, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color, id))
         mysql.get_db().commit()
         cursor.close()
 
         return redirect(url_for('historia_actualizada'))
 
     return render_template('editar_historia.html', historia=historia)
+
 
 
 

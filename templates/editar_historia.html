@@ -13,11 +13,35 @@
     <form method="POST">
         <input type="hidden" name="id" value="{{ historia[0] if historia else '' }}">
         Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}" class="validate-input" required><br><br>
-        Propietario: <input type="text" name="propietario" value="{{ historia[1] if historia else '' }}" class="validate-input" required><br><br>
+        Propietario: <input type text" name="propietario" value="{{ historia[1] if historia else '' }}" class="validate-input" required><br><br>
         Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}" class="validate-input" required><br><br>
         Médico Responsable: <input type="text" name="medico_responsable" value="{{ historia[4] if historia else '' }}" class="validate-input" required><br><br>
-        Fecha de Creación: <input type="date" name="fecha_creacion" value="{{ historia[5] or '' }}" class="validate-input">
+        Fecha de Creación: <input type="date" name="fecha_creacion" value="{{ historia[5] or '' }}" class="validate-input"><br><br>
         Telefono: <input type="text" name="telefono" value="{{ historia[6] if historia else '' }}" class="validate-input"><br><br>
+
+        <!-- Nuevos campos -->
+        Nombre del Paciente: <input type="text" name="nombre_paciente" value="{{ historia[7] if historia else '' }}" class="validate-input" required><br><br>
+        Fecha de Nacimiento: <input type="date" name="fecha_nacimiento" value="{{ historia[8] or '' }}" class="validate-input"><br><br>
+
+        <!-- Lista desplegable para Especie -->
+        Especie:
+        <select name="especie" class="validate-input" required>
+            <option value="Perro" {% if historia[9] == "Perro" %} selected {% endif %}>Perro</option>
+            <option value="Gato" {% if historia[9] == "Gato" %} selected {% endif %}>Gato</option>
+        </select>
+        <br><br>
+
+        Raza: <input type="text" name="raza" value="{{ historia[10] or '' }}" class="validate-input"><br><br>
+
+        <!-- Lista desplegable para Sexo -->
+        Sexo:
+        <select name="sexo" class="validate-input" required>
+            <option value="Macho" {% if historia[11] == "Macho" %} selected {% endif %}>Macho</option>
+            <option value="Hembra" {% if historia[11] == "Hembra" %} selected {% endif %}>Hembra</option>
+        </select>
+        <br><br>
+
+        Color: <input type="text" name="color" value="{{ historia[12] or '' }}" class="validate-input"><br><br>
 
         <!-- Botones dentro de un div para alinearlos -->
         <div class="button-container">
@@ -25,7 +49,7 @@
             <a href="javascript:history.back()" class="btn secundary-btn">Volver</a> <!-- Estilo del botón secundario -->
         </div>
     </form>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Obtenemos una referencia al formulario

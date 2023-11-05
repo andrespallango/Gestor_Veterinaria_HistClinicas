@@ -15,9 +15,31 @@
         Dirección: <input type="text" name="direccion" value="{{ request.form.direccion or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
         Médico Responsable: <input type="text" name="medico_responsable" value="{{ request.form.medico_responsable or '' }}" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
         Fecha de Creación: <input type="date" name="fecha_creacion" class="validate-input{{ ' error-field' if error_message }}" required><br><br>
-        Teléfono: <input type="text" name="telefono" value="{{ request.form.telefono or '' }}" class="validate-input{{ ' error-field' if error_message }}"><br><br>  
+        Teléfono: <input type="text" name="telefono" value="{{ request.form.telefono or '' }}" class="validate-input{{ ' error-field' if error_message }}"><br><br>
         
+        <!-- Nuevos campos -->
+        Nombre del Paciente: <input type="text" name="nombre_paciente" value="{{ request.form.nombre_paciente or '' }}" class="validate-input" required><br><br>
+        Fecha de Nacimiento: <input type="date" name="fecha_nacimiento" value="{{ request.form.fecha_nacimiento or '' }}" class="validate-input"><br><br>
+        
+        <!-- Lista desplegable para Especie -->
+        Especie:
+        <select name="especie" class="validate-input" required>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+        </select>
         <br><br>
+        
+        Raza: <input type="text" name="raza" value="{{ request.form.raza or '' }}" class="validate-input"><br><br>
+        
+        <!-- Lista desplegable para Sexo -->
+        Sexo:
+        <select name="sexo" class="validate-input" required>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+        </select>
+        <br><br>
+        
+        Color: <input type="text" name="color" value="{{ request.form.color or '' }}" class="validate-input"><br><br>
         
         <div class="button-container">
             <input type="submit" value="Guardar Historia" class="btn btn-save">
@@ -28,6 +50,4 @@
             <div class="alert alert-danger">{{ error_message }}</div>
         {% endif %}
     </form>
-    
-
 {% endblock %}
