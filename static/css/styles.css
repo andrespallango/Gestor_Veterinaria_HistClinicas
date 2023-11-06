@@ -88,6 +88,12 @@ h1 {
     color: gray; /* Cambia el color del texto */
 }
 
+/* Aplicar la fuente a tu elemento h2 */
+h2 {
+    font-family: 'Myriad Roman', sans-serif;
+    color: black; /* Cambia el color del texto */
+}
+
 .input-field {
     border: 1px solid #ccc; /* Color de borde por defecto */
 }
@@ -130,3 +136,15 @@ hr {
     border: 1px solid #ccc; /* Borde para cada celda */
 }
 
+h1 {
+    font-family: 'Myriad Roman', sans-serif;
+    font-style: bold; /* Texto en cursiva */
+    color: gray; /* Cambia el color del texto */
+}
+
+.label {
+    font-family: 'Myriad Roman', sans-serif;
+    font-style: bold;
+    color: black; /* Cambia el color del texto */
+
+}

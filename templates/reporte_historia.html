@@ -1,65 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Reporte de Historia Clínica</h1>
-
+    <h2>Información del Propietario</h2>
     <table class="info-table" style="max-width: 80%;">
         <tr>
-            <td style="width: 30%;"><strong>ID: C.V.A.M-</strong></td>
-            <td style="width: 70%;">{{ historia[0] }}</td>
+            <td class="label"><strong>ID: C.V.A.M-</strong></td>
+            <td>{{ historia[0] }}</td>
         </tr>
         <tr>
-            <td style="width: 30%;"><strong>Propietario:</strong></td>
-            <td style="width: 70%;">{{ historia[1] }}</td>
+            <td class="label"><strong>Propietario:</strong></td>
+            <td>{{ historia[1] }}</td>
         </tr>
         <tr>
-            <td><strong>Cédula:</strong></td>
-            <td>{{ historia[2] }}</td>
-        </tr>
-        <tr>
-            <td><strong>Dirección:</strong></td>
-            <td>{{ historia[3] }}</td>
-        </tr>
-        <tr>
-            <td><strong>Médico Responsable:</strong></td>
-            <td>{{ historia[4] }}</td>
-        </tr>
-        <tr>
-            <td><strong>Fecha de Creación:</strong></td>
+            <td class="label"><strong>Fecha de Creación:</strong></td>
             <td>{{ historia[5] }}</td>
         </tr>
         <tr>
-            <td><strong>Teléfono:</strong></td>
+            <td class="label"><strong>Cédula:</strong></td>
+            <td>{{ historia[2] }}</td>
+        </tr>
+        <tr>
+            <td class="label"><strong>Dirección:</strong></td>
+            <td>{{ historia[3] }}</td>
+        </tr>
+        <tr>
+            <td class="label"><strong>Médico Responsable:</strong></td>
+            <td>{{ historia[4] }}</td>
+        </tr>
+        <tr>
+            <td class="label"><strong>Teléfono:</strong></td>
             <td>{{ historia[6] }}</td>
         </tr>
+    </table>
+
+    <h2>Información de la Mascota</h2>
+
+    <table class="info-table" style="max-width: 80%;">
         <tr>
-            <td><strong>Nombre del Paciente:</strong></td>
+            <td class="label"><strong>Nombre del Paciente:</strong></td>
             <td>{{ historia[7] }}</td>
-        </tr>
-        <tr>
-            <td><strong>Fecha de Nacimiento:</strong></td>
+       
+            <td class="label"><strong>Fecha de Nacimiento:</strong></td>
             <td>{{ historia[8] }}</td>
         </tr>
         <tr>
-            <td><strong>Especie:</strong></td>
+            <td class="label"><strong>Especie:</strong></td>
             <td>{{ historia[9] }}</td>
-        </tr>
-        <tr>
-            <td><strong>Raza:</strong></td>
+ 
+            <td class="label"><strong>Raza:</strong></td>
             <td>{{ historia[10] }}</td>
         </tr>
         <tr>
-            <td><strong>Sexo:</strong></td>
+            <td class="label"><strong>Sexo:</strong></td>
             <td>{{ historia[11] }}</td>
-        </tr>
-        <tr>
-            <td><strong>Color:</strong></td>
+
+            <td class="label"><strong>Color:</strong></td>
             <td>{{ historia[12] }}</td>
         </tr>
+        
         
     </table>
 
     <div class="button-container">
-        <a href="{{ url_for('editar_historia', id=historia[0]) }}" class="btn btn-primary">Editar</a>
+        <br><br><a href="{{ url_for('editar_historia', id=historia[0]) }}" class="btn btn-primary">Editar</a>
         <a href="{{ url_for('confirmar_borrar_historia', id=historia[0]) }}" class="btn btn-danger">Borrar</a>
     </div>
 

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let hasEmptyFields = false;
         inputFields.forEach(function (input) {
-            if (input.value.trim() === '') {
+            if (input.value.trim() === '' && !input.name.startsWith('vacuna_perro') && !input.name.startsWith('fecha_vacuna_perro')) {
                 hasEmptyFields = true;
                 input.classList.add('error-field'); // Agregar la clase 'error-field' para resaltar el campo vacío.
             }
