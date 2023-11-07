@@ -1,96 +1,91 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>Información del Propietario</h2>
-    <table class="info-table" style="max-width: 80%;">
-        <tr>
-            <td class="label"><strong>ID: C.V.A.M-</strong></td>
-            <td>{{ historia[0] }}</td>
-        </tr>
-        <tr>
-            <td class="label"><strong>Propietario:</strong></td>
-            <td>{{ historia[1] }}</td>
-        </tr>
-        <tr>
-            <td class="label"><strong>Fecha de Creación:</strong></td>
-            <td>{{ historia[5] }}</td>
-        </tr>
-        <tr>
-            <td class="label"><strong>Cédula:</strong></td>
-            <td>{{ historia[2] }}</td>
-        </tr>
-        <tr>
-            <td class="label"><strong>Dirección:</strong></td>
-            <td>{{ historia[3] }}</td>
-        </tr>
-        <tr>
-            <td class="label"><strong>Médico Responsable:</strong></td>
-            <td>{{ historia[4] }}</td>
-        </tr>
-        <tr>
-            <td class="label"><strong>Teléfono:</strong></td>
-            <td>{{ historia[6] }}</td>
-        </tr>
-    </table>
 
-    <h2>Información de la Mascota</h2>
-
-    <table class="info-table" style="max-width: 80%;">
-        <tr>
-            <td class="label"><strong>Nombre del Paciente:</strong></td>
-            <td>{{ historia[7] }}</td>
-       
-            <td class="label"><strong>Fecha de Nacimiento:</strong></td>
-            <td>{{ historia[8] }}</td>
-        </tr>
-        <tr>
-            <td class="label"><strong>Especie:</strong></td>
-            <td>{{ historia[9] }}</td>
- 
-            <td class="label"><strong>Raza:</strong></td>
-            <td>{{ historia[10] }}</td>
-        </tr>
-        <tr>
-            <td class="label"><strong>Sexo:</strong></td>
-            <td>{{ historia[11] }}</td>
-
-            <td class="label"><strong>Color:</strong></td>
-            <td>{{ historia[12] }}</td>
-        </tr>
-        
-        
-    </table>
-
+<table class="info-table" style="max-width: 80%;">
+    <tr>
+        <td class="label"><strong>ID: C.V.A.M-</strong></td>
+        <td>{{ historia[0] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Médico Responsable:</strong></td>
+        <td>{{ historia[4] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Propietario:</strong></td>
+        <td>{{ historia[1] }}</td>
+        <td class="label"><strong>Fecha de Creación:</strong></td>
+        <td>{{ historia[5] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Cédula:</strong></td>
+        <td>{{ historia[2] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Dirección:</strong></td>
+        <td>{{ historia[3] }}</td>
+        <td class="label"><strong>Teléfono:</strong></td>
+        <td>{{ historia[6] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Nombre del Paciente:</strong></td>
+        <td>{{ historia[7] }}</td>
+        <td class="label"><strong>Fecha de Nacimiento:</strong></td>
+        <td>{{ historia[8] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Especie:</strong></td>
+        <td>{{ historia[9] }}</td>
+        <td class="label"><strong>Raza:</strong></td>
+        <td>{{ historia[10] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Sexo:</strong></td>
+        <td>{{ historia[11] }}</td>
+        <td class="label"><strong>Color:</strong></td>
+        <td>{{ historia[12] }}</td>
+    </tr>
+</table>
 <!-- Nueva tabla de vacunas -->
 <table class="info-table" style="max-width: 80%;">
     <tr>
         <td class="label"><strong>Vacuna 1:</strong></td>
-        <td>{{ historia[13] if historia[13] else '' }}</td>
-        <td class="label"><strong>Fecha Vacuna 1:</strong></td>
+        <td>{{ historia[13] }}</td>
+        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[14] if historia[14] else '' }}</td>
     </tr>
     <tr>
         <td class="label"><strong>Vacuna 2:</strong></td>
-        <td>{{ historia[15] if historia[15] else '' }}</td>
-        <td class="label"><strong>Fecha Vacuna 2:</strong></td>
+        <td>{{ historia[15] }}</td>
+        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[16] if historia[16] else '' }}</td>
     </tr>
     <tr>
         <td class="label"><strong>Vacuna 3:</strong></td>
-        <td>{{ historia[17] if historia[17] else '' }}</td>
-        <td class="label"><strong>Fecha Vacuna 3:</strong></td>
+        <td>{{ historia[17] }}</td>
+        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[18] if historia[18] else '' }}</td>
     </tr>
     <tr>
         <td class="label"><strong>Vacuna 4:</strong></td>
-        <td>{{ historia[19] if historia[19] else '' }}</td>
-        <td class="label"><strong>Fecha Vacuna 4:</strong></td>
+        <td>{{ historia[19] }}</td>
+        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[20] if historia[20] else '' }}</td>
     </tr>
     <tr>
         <td class="label"><strong>Vacuna 5:</strong></td>
-        <td>{{ historia[21] if historia[21] else '' }}</td>
-        <td class="label"><strong>Fecha Vacuna 5:</strong></td>
+        <td>{{ historia[21] }}</td>
+        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[22] if historia[22] else '' }}</td>
+    </tr>
+</table>
+<table class="info-table" style="max-width: 80%;">
+    <tr>
+        <td class="label"><strong>Fecha Última Desparasitación:</strong></td>
+        <td>{{ historia[23] if historia[23] else '' }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Motivo de la Consulta:</strong></td>
+        <td>{{ historia[24] }}</td>
     </tr>
 </table>
 

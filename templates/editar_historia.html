@@ -12,47 +12,40 @@
 
     <form method="POST">
         <input type="hidden" name="id" value="{{ historia[0] if historia else '' }}">
-        Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}" required><br><br>
-        Propietario: <input type text" name="propietario" value="{{ historia[1] if historia else '' }}" required><br><br>
-        Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}" required><br><br>
         Médico Responsable: <input type="text" name="medico_responsable" value="{{ historia[4] if historia else '' }}" required><br><br>
+        Propietario: <input type="text" name="propietario" value="{{ historia[1] if historia else '' }}" required>
         Fecha de Creación: <input type="date" name="fecha_creacion" value="{{ historia[5] or '' }}" required><br><br>
+        Cédula: <input type="text" name="cedula" value="{{ historia[2] if historia else '' }}" required><br><br>
+        Dirección: <input type="text" name="direccion" value="{{ historia[3] if historia else '' }}" required><br><br>
         Telefono: <input type="text" name="telefono" value="{{ historia[6] if historia else '' }}" required><br><br>
-
-        <!-- Nuevos campos -->
-        Nombre del Paciente: <input type="text" name="nombre_paciente" value="{{ historia[7] if historia else '' }}" required><br><br>
+        Nombre del Paciente: <input type="text" name="nombre_paciente" value="{{ historia[7] if historia else '' }}" required>
         Fecha de Nacimiento: <input type="date" name="fecha_nacimiento" value="{{ historia[8] or '' }}" required><br><br>
-
-        <!-- Lista desplegable para Especie -->
         Especie:
         <select name="especie" required>
             <option value="Perro" {% if historia[9] == "Perro" %} selected {% endif %}>Perro</option>
             <option value="Gato" {% if historia[9] == "Gato" %} selected {% endif %}>Gato</option>
         </select>
-        <br><br>
-
-        Raza: <input type="text" name="raza" value="{{ historia[10] or '' }}" required><br><br>
-
-        <!-- Lista desplegable para Sexo -->
         Sexo:
         <select name="sexo" required>
             <option value="Macho" {% if historia[11] == "Macho" %} selected {% endif %}>Macho</option>
             <option value="Hembra" {% if historia[11] == "Hembra" %} selected {% endif %}>Hembra</option>
         </select>
         <br><br>
-
+        Raza: <input type="text" name="raza" value="{{ historia[10] or '' }}" required>
         Color: <input type="text" name="color" value="{{ historia[12] or '' }}" required><br><br>
         
-        Vacuna 1: <input type="text" name="vacuna_1" value="{{ historia[13] if historia else '' }}"><br><br>
-        Fecha de Vacuna 1: <input type="date" name="fecha_vacuna_1" value="{{ historia[14] or '' }}"><br><br>
-        Vacuna 2: <input type="text" name="vacuna_2" value="{{ historia[15] if historia else '' }}"><br><br>
-        Fecha de Vacuna 2: <input type="date" name="fecha_vacuna_2" value="{{ historia[16] or '' }}"><br><br>
-        Vacuna 3: <input type="text" name="vacuna_3" value="{{ historia[17] if historia else '' }}"><br><br>
-        Fecha de Vacuna 3: <input type="date" name="fecha_vacuna_3" value="{{ historia[18] or '' }}"><br><br>
-        Vacuna 4: <input type="text" name="vacuna_4" value="{{ historia[19] if historia else '' }}"><br><br>
-        Fecha de Vacuna 4: <input type="date" name="fecha_vacuna_4" value="{{ historia[20] or '' }}"><br><br>
-        Vacuna 5: <input type="text" name="vacuna_5" value="{{ historia[21] if historia else '' }}"><br><br>
-        Fecha de Vacuna 5: <input type="date" name="fecha_vacuna_5" value="{{ historia[22] or '' }}"><br><br>
+        Vacuna 1: <input type="text" name="vacuna_1" value="{{ historia[13] if historia else '' }}">
+        Fecha: <input type="date" name="fecha_vacuna_1" value="{{ historia[14] or '' }}"><br><br>
+        Vacuna 2: <input type="text" name="vacuna_2" value="{{ historia[15] if historia else '' }}">
+        Fecha: <input type="date" name="fecha_vacuna_2" value="{{ historia[16] or '' }}"><br><br>
+        Vacuna 3: <input type="text" name="vacuna_3" value="{{ historia[17] if historia else '' }}">
+        Fecha: <input type="date" name="fecha_vacuna_3" value="{{ historia[18] or '' }}"><br><br>
+        Vacuna 4: <input type="text" name="vacuna_4" value="{{ historia[19] if historia else '' }}">
+        Fecha: <input type="date" name="fecha_vacuna_4" value="{{ historia[20] or '' }}"><br><br>
+        Vacuna 5: <input type="text" name="vacuna_5" value="{{ historia[21] if historia else '' }}">
+        Fecha: <input type="date" name="fecha_vacuna_5" value="{{ historia[22] or '' }}"><br><br>
+        Fecha de Última Desparasitación: <input type="date" name="fecha_ultima_desparasitacion" value="{{ historia[23] or '' }}"><br><br>
+        Motivo de Consulta:<textarea name="motivo_consulta" rows="5">{{ historia[24] if historia else '' }}</textarea><br><br>
 
         <!-- Botones dentro de un div para alinearlos -->
         <div class="button-container">
