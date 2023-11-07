@@ -78,6 +78,7 @@
         <td>{{ historia[22] if historia[22] else '' }}</td>
     </tr>
 </table>
+
 <table class="info-table" style="max-width: 80%;">
     <tr>
         <td class="label"><strong>Fecha Última Desparasitación:</strong></td>
@@ -87,8 +88,31 @@
         <td class="label"><strong>Motivo de la Consulta:</strong></td>
         <td>{{ historia[24] }}</td>
     </tr>
+    <tr>
+        <td class="label"><strong>Sintomatología:</strong></td>
+        <td>{{ historia[25] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Tratamiento:</strong></td>
+        <td>{{ historia[26] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Diagnóstico Diferencial:</strong></td>
+        <td>{{ historia[27] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Exámenes Complementarios:</strong></td>
+        <td>{{ historia[28] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Diagnóstico Definitivo:</strong></td>
+        <td>{{ historia[29] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Tratamiento Final:</strong></td>
+        <td>{{ historia[30] }}</td>
+    </tr>
 </table>
-
 
     <div class="button-container">
         <br><br><a href="{{ url_for('editar_historia', id=historia[0]) }}" class="btn btn-primary">Editar</a>
