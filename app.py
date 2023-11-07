@@ -36,15 +36,15 @@ def nueva_historia():
         sexo = request.form['sexo']
         color = request.form['color']
         vacuna_1 = request.form['vacuna_1']
-        fecha_vacuna_1 = request.form['fecha_vacuna_1']
+        fecha_vacuna_1 = request.form['fecha_vacuna_1'] if request.form['fecha_vacuna_1'] else None
         vacuna_2 = request.form['vacuna_2']
-        fecha_vacuna_2 = request.form['fecha_vacuna_2']
+        fecha_vacuna_2 = request.form['fecha_vacuna_2'] if request.form['fecha_vacuna_2'] else None
         vacuna_3 = request.form['vacuna_3']
-        fecha_vacuna_3 = request.form['fecha_vacuna_3']
+        fecha_vacuna_3 = request.form['fecha_vacuna_3'] if request.form['fecha_vacuna_3'] else None
         vacuna_4 = request.form['vacuna_4']
-        fecha_vacuna_4 = request.form['fecha_vacuna_4']
+        fecha_vacuna_4 = request.form['fecha_vacuna_4'] if request.form['fecha_vacuna_4'] else None
         vacuna_5 = request.form['vacuna_5']
-        fecha_vacuna_5 = request.form['fecha_vacuna_5']
+        fecha_vacuna_5 = request.form['fecha_vacuna_5'] if request.form['fecha_vacuna_5'] else None
 
         # Verifica que los campos obligatorios estén llenos
         if not (cedula and propietario and direccion and medico_responsable and fecha_creacion and telefono and
@@ -60,6 +60,7 @@ def nueva_historia():
             return redirect(url_for('historia_creada'))
 
     return render_template('nueva_historia.html', error_message=error_message)
+
 
 
 
@@ -129,15 +130,16 @@ def editar_historia(id):
         sexo = request.form['sexo']
         color = request.form['color']
         vacuna_1 = request.form['vacuna_1']
-        fecha_vacuna_1 = request.form['fecha_vacuna_1']
+        fecha_vacuna_1 = request.form['fecha_vacuna_1'] if request.form['fecha_vacuna_1'] else None
         vacuna_2 = request.form['vacuna_2']
-        fecha_vacuna_2 = request.form['fecha_vacuna_2']
+        fecha_vacuna_2 = request.form['fecha_vacuna_2'] if request.form['fecha_vacuna_2'] else None
         vacuna_3 = request.form['vacuna_3']
-        fecha_vacuna_3 = request.form['fecha_vacuna_3']
+        fecha_vacuna_3 = request.form['fecha_vacuna_3'] if request.form['fecha_vacuna_3'] else None
         vacuna_4 = request.form['vacuna_4']
-        fecha_vacuna_4 = request.form['fecha_vacuna_4']
+        fecha_vacuna_4 = request.form['fecha_vacuna_4'] if request.form['fecha_vacuna_4'] else None
         vacuna_5 = request.form['vacuna_5']
-        fecha_vacuna_5 = request.form['fecha_vacuna_5']
+        fecha_vacuna_5 = request.form['fecha_vacuna_5'] if request.form['fecha_vacuna_5'] else None
+
 
         cursor = mysql.get_db().cursor()
         cursor.execute("UPDATE historia SET propietario = %s, direccion = %s, medico_responsable = %s, cedula = %s, fecha_creacion = %s, telefono = %s, nombre_paciente = %s, fecha_nacimiento = %s, especie = %s, raza = %s, sexo = %s, color = %s, vacuna_1 = %s, fecha_vacuna_1 = %s, vacuna_2 = %s, fecha_vacuna_2 = %s, vacuna_3 = %s, fecha_vacuna_3 = %s, vacuna_4 = %s, fecha_vacuna_4 = %s, vacuna_5 = %s, fecha_vacuna_5 = %s WHERE id = %s",
