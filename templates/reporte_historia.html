@@ -60,40 +60,40 @@
         
     </table>
 
-    <!-- Nueva tabla de vacunas -->
-
-    <table class="info-table" style="max-width: 80%;">
+<!-- Nueva tabla de vacunas -->
+<table class="info-table" style="max-width: 80%;">
     <tr>
         <td class="label"><strong>Vacuna 1:</strong></td>
-        <td>{{ historia[13] }}</td>
+        <td>{{ historia[13] if historia[13] else '' }}</td>
         <td class="label"><strong>Fecha Vacuna 1:</strong></td>
-        <td>{{ historia[14] }}</td>
+        <td>{{ historia[14] if historia[14] else '' }}</td>
     </tr>
     <tr>
         <td class="label"><strong>Vacuna 2:</strong></td>
-        <td>{{ historia[15] }}</td>
+        <td>{{ historia[15] if historia[15] else '' }}</td>
         <td class="label"><strong>Fecha Vacuna 2:</strong></td>
-        <td>{{ historia[16] }}</td>
+        <td>{{ historia[16] if historia[16] else '' }}</td>
     </tr>
     <tr>
         <td class="label"><strong>Vacuna 3:</strong></td>
-        <td>{{ historia[17] }}</td>
+        <td>{{ historia[17] if historia[17] else '' }}</td>
         <td class="label"><strong>Fecha Vacuna 3:</strong></td>
-        <td>{{ historia[18] }}</td>
+        <td>{{ historia[18] if historia[18] else '' }}</td>
     </tr>
     <tr>
         <td class="label"><strong>Vacuna 4:</strong></td>
-        <td>{{ historia[19] }}</td>
+        <td>{{ historia[19] if historia[19] else '' }}</td>
         <td class="label"><strong>Fecha Vacuna 4:</strong></td>
-        <td>{{ historia[20] }}</td>
+        <td>{{ historia[20] if historia[20] else '' }}</td>
     </tr>
     <tr>
         <td class="label"><strong>Vacuna 5:</strong></td>
-        <td>{{ historia[21] }}</td>
+        <td>{{ historia[21] if historia[21] else '' }}</td>
         <td class="label"><strong>Fecha Vacuna 5:</strong></td>
-        <td>{{ historia[22] }}</td>
+        <td>{{ historia[22] if historia[22] else '' }}</td>
     </tr>
 </table>
+
 
     <div class="button-container">
         <br><br><a href="{{ url_for('editar_historia', id=historia[0]) }}" class="btn btn-primary">Editar</a>
