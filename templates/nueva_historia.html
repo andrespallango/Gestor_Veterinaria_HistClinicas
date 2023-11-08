@@ -39,7 +39,13 @@
       
         Fecha de Última Desparasitación: <input type="date" name="fecha_ultima_desparasitacion" value="{{ request.form.fecha_ultima_desparasitacion or '' }}"><br><br>
         Motivo de Consulta: <textarea name="motivo_consulta" rows="4" cols="50">{{ request.form.motivo_consulta or '' }}</textarea><br><br>
-
+        Sintomatología: <textarea name="sintomatologia" rows="4" cols="50">{{ request.form.sintomatologia or '' }}</textarea><br><br>
+        Tratamiento: <textarea name="tratamiento" rows="4" cols="50">{{ request.form.tratamiento or '' }}</textarea><br><br>
+        Diagnóstico Diferencial: <textarea name="diagnostico_diferencial" rows="4" cols="50">{{ request.form.diagnostico_diferencial or '' }}</textarea><br><br>
+        Exámenes Complementarios: <textarea name="examenes_complementarios" rows="4" cols="50">{{ request.form.examenes_complementarios or '' }}</textarea><br><br>
+        Diagnóstico Definitivo: <textarea name="diagnostico_definitivo" rows="4" cols="50">{{ request.form.diagnostico_definitivo or '' }}</textarea><br><br>
+        Tratamiento Final: <textarea name="tratamiento_final" rows="4" cols="50">{{ request.form.tratamiento_final or '' }}</textarea><br><br>
+    
         
         <div class="button-container">
             <input type="submit" value="Guardar Historia" class="btn btn-save">
