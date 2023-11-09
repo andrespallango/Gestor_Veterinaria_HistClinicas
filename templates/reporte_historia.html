@@ -46,35 +46,29 @@
     </tr>
 </table>
 <!-- Nueva tabla de vacunas -->
-<table class="info-table" style="max-width: 80%;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
-        <td class="label"><strong>Vacuna 1:</strong></td>
+        <th class="label">Vacuna</th>
+        <th class="label">Fecha</th>
+    </tr>
+    <tr>
         <td>{{ historia[13] }}</td>
-        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[14] if historia[14] else '' }}</td>
     </tr>
     <tr>
-        <td class="label"><strong>Vacuna 2:</strong></td>
         <td>{{ historia[15] }}</td>
-        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[16] if historia[16] else '' }}</td>
     </tr>
     <tr>
-        <td class="label"><strong>Vacuna 3:</strong></td>
         <td>{{ historia[17] }}</td>
-        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[18] if historia[18] else '' }}</td>
     </tr>
     <tr>
-        <td class="label"><strong>Vacuna 4:</strong></td>
         <td>{{ historia[19] }}</td>
-        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[20] if historia[20] else '' }}</td>
     </tr>
     <tr>
-        <td class="label"><strong>Vacuna 5:</strong></td>
         <td>{{ historia[21] }}</td>
-        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia[22] if historia[22] else '' }}</td>
     </tr>
 </table>
@@ -112,6 +106,40 @@
         <td class="label"><strong>Tratamiento Final:</strong></td>
         <td>{{ historia[30] }}</td>
     </tr>
+
+</table>
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
+    <tr>
+        <th class="label">Medicamento</th>
+        <th class="label">Posología</th>
+    </tr>
+    <tr>
+        <td>{{ historia[31] }}</td>
+        <td>{{ historia[32] }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia[33] }}</td>
+        <td>{{ historia[34] }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia[35] }}</td>
+        <td>{{ historia[36] }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia[37] }}</td>
+        <td>{{ historia[38] }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia[39] }}</td>
+        <td>{{ historia[40] }}</td>
+    </tr>
+</table>
+<table class="info-table" style="max-width: 80%;">
+    <tr>
+        <td class="label"><strong>Fecha de próxima cita:</strong></td>
+        <td>{{ historia[41] if historia[41] else '' }}</td>
+    </tr>
+
 </table>
 
     <div class="button-container">

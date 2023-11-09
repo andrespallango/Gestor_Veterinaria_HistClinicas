@@ -45,7 +45,19 @@
         Exámenes Complementarios: <textarea name="examenes_complementarios" rows="4" cols="50">{{ request.form.examenes_complementarios or '' }}</textarea><br><br>
         Diagnóstico Definitivo: <textarea name="diagnostico_definitivo" rows="4" cols="50">{{ request.form.diagnostico_definitivo or '' }}</textarea><br><br>
         Tratamiento Final: <textarea name="tratamiento_final" rows="4" cols="50">{{ request.form.tratamiento_final or '' }}</textarea><br><br>
-    
+       
+        Medicamento 1: <input type="text" name="medicamento_1" value="{{ request.form.medicamento_1 or '' }}" required><br><br>
+        Posología 1: <input type="text" name="posologia_1" value="{{ request.form.posologia_1 or '' }}" required><br><br>
+        Medicamento 2: <input type="text" name="medicamento_2" value="{{ request.form.medicamento_2 or '' }}" required><br><br>
+        Posología 2: <input type="text" name="posologia_2" value="{{ request.form.posologia_2 or '' }}" required><br><br>
+        Medicamento 3: <input type="text" name="medicamento_3" value="{{ request.form.medicamento_3 or '' }}" required><br><br>
+        Posología 3: <input type="text" name="posologia_3" value="{{ request.form.posologia_3 or '' }}" required><br><br>
+        Medicamento 4: <input type="text" name="medicamento_4" value="{{ request.form.medicamento_4 or '' }}" required><br><br>
+        Posología 4: <input type="text" name="posologia_4" value="{{ request.form.posologia_4 or '' }}" required><br><br>
+        Medicamento 5: <input type="text" name="medicamento_5" value="{{ request.form.medicamento_5 or '' }}" required><br><br>
+        Posología 5: <input type="text" name="posologia_5" value="{{ request.form.posologia_5 or '' }}" required><br><br>
+        Fecha de Próxima Cita: <input type="date" name="proxima_cita" value="{{ request.form.proxima_cita or '' }}"><br><br>
+
         
         <div class="button-container">
             <input type="submit" value="Guardar Historia" class="btn btn-save">

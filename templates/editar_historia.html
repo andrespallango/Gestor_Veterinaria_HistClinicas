@@ -52,7 +52,17 @@
         Exámenes Complementarios: <textarea name="examenes_complementarios" rows="5">{{ historia[28] if historia else '' }}</textarea><br><br>
         Diagnóstico Definitivo: <textarea name="diagnostico_definitivo" rows="5">{{ historia[29] if historia else '' }}</textarea><br><br>
         Tratamiento Final: <textarea name="tratamiento_final" rows="5">{{ historia[30] if historia else '' }}</textarea><br><br>
-    
+        Medicamento 1: <input type="text" name="medicamento_1" value="{{ historia[31] or '' }}" required><br><br>
+        Posología 1: <input type="text" name="posologia_1" value="{{ historia[32] or '' }}" required><br><br>
+        Medicamento 2: <input type="text" name="medicamento_2" value="{{ historia[33] or '' }}" required><br><br>
+        Posología 2: <input type="text" name="posologia_2" value="{{ historia[34] or '' }}" required><br><br>
+        Medicamento 3: <input type="text" name="medicamento_3" value="{{ historia[35] or '' }}" required><br><br>
+        Posología 3: <input type="text" name="posologia_3" value="{{ historia[36] or '' }}" required><br><br>
+        Medicamento 4: <input type="text" name="medicamento_4" value="{{ historia[37] or '' }}" required><br><br>
+        Posología 4: <input type="text" name="posologia_4" value="{{ historia[38] or '' }}" required><br><br>
+        Medicamento 5: <input type="text" name="medicamento_5" value="{{ historia[39] or '' }}" required><br><br>
+        Posología 5: <input type="text" name="posologia_5" value="{{ historia[40] or '' }}" required><br><br>
+        Fecha de próxima cita: <input type="date" name="proxima_cita" value="{{ historia[41] or '' }}"><br><br>
 
         <!-- Botones dentro de un div para alinearlos -->
         <div class="button-container">

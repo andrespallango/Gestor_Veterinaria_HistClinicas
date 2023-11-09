@@ -53,6 +53,18 @@ def nueva_historia():
         examenes_complementarios = request.form['examenes_complementarios']
         diagnostico_definitivo = request.form['diagnostico_definitivo']
         tratamiento_final = request.form['tratamiento_final']
+        medicamento_1 = request.form['medicamento_1']
+        posologia_1 = request.form['posologia_1']
+        medicamento_2 = request.form['medicamento_2']
+        posologia_2 = request.form['posologia_2']
+        medicamento_3 = request.form['medicamento_3']
+        posologia_3 = request.form['posologia_3']
+        medicamento_4 = request.form['medicamento_4']
+        posologia_4 = request.form['posologia_4']
+        medicamento_5 = request.form['medicamento_5']
+        posologia_5 = request.form['posologia_5']
+        proxima_cita = request.form['proxima_cita'] if request.form['proxima_cita'] else None
+
 
         # Verifica que los campos obligatorios estén llenos
         if not (cedula and propietario and direccion and medico_responsable and fecha_creacion and telefono and
@@ -60,8 +72,8 @@ def nueva_historia():
             error_message = 'Por favor, llena todos los campos obligatorios.'
         else:
             cursor = mysql.get_db().cursor()
-            cursor.execute("INSERT INTO historia (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color, vacuna_1, fecha_vacuna_1, vacuna_2, fecha_vacuna_2, vacuna_3, fecha_vacuna_3, vacuna_4, fecha_vacuna_4, vacuna_5, fecha_vacuna_5, fecha_ultima_desparasitacion, motivo_consulta, sintomatologia, tratamiento, diagnostico_diferencial, examenes_complementarios, diagnostico_definitivo, tratamiento_final) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                    (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color, vacuna_1, fecha_vacuna_1, vacuna_2, fecha_vacuna_2, vacuna_3, fecha_vacuna_3, vacuna_4, fecha_vacuna_4, vacuna_5, fecha_vacuna_5, fecha_ultima_desparasitacion, motivo_consulta, sintomatologia, tratamiento, diagnostico_diferencial, examenes_complementarios, diagnostico_definitivo, tratamiento_final))
+            cursor.execute("INSERT INTO historia (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color, vacuna_1, fecha_vacuna_1, vacuna_2, fecha_vacuna_2, vacuna_3, fecha_vacuna_3, vacuna_4, fecha_vacuna_4, vacuna_5, fecha_vacuna_5, fecha_ultima_desparasitacion, motivo_consulta, sintomatologia, tratamiento, diagnostico_diferencial, examenes_complementarios, diagnostico_definitivo, tratamiento_final, medicamento_1, posologia_1, medicamento_2, posologia_2, medicamento_3, posologia_3, medicamento_4, posologia_4, medicamento_5, posologia_5, proxima_cita) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                    (cedula, propietario, direccion, medico_responsable, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color, vacuna_1, fecha_vacuna_1, vacuna_2, fecha_vacuna_2, vacuna_3, fecha_vacuna_3, vacuna_4, fecha_vacuna_4, vacuna_5, fecha_vacuna_5, fecha_ultima_desparasitacion, motivo_consulta, sintomatologia, tratamiento, diagnostico_diferencial, examenes_complementarios, diagnostico_definitivo, tratamiento_final, medicamento_1, posologia_1, medicamento_2, posologia_2, medicamento_3, posologia_3, medicamento_4, posologia_4, medicamento_5, posologia_5, proxima_cita))
 
             mysql.get_db().commit()
             cursor.close()
@@ -157,10 +169,22 @@ def editar_historia(id):
         examenes_complementarios = request.form['examenes_complementarios']
         diagnostico_definitivo = request.form['diagnostico_definitivo']
         tratamiento_final = request.form['tratamiento_final']
+        
+        medicamento_1 = request.form['medicamento_1']
+        posologia_1 = request.form['posologia_1']
+        medicamento_2 = request.form['medicamento_2']
+        posologia_2 = request.form['posologia_2']
+        medicamento_3 = request.form['medicamento_3']
+        posologia_3 = request.form['posologia_3']
+        medicamento_4 = request.form['medicamento_4']
+        posologia_4 = request.form['posologia_4']
+        medicamento_5 = request.form['medicamento_5']
+        posologia_5 = request.form['posologia_5']
+        proxima_cita = request.form['proxima_cita'] if request.form['proxima_cita'] else None
 
         cursor = mysql.get_db().cursor()
-        cursor.execute("UPDATE historia SET propietario = %s, direccion = %s, medico_responsable = %s, cedula = %s, fecha_creacion = %s, telefono = %s, nombre_paciente = %s, fecha_nacimiento = %s, especie = %s, raza = %s, sexo = %s, color = %s, vacuna_1 = %s, fecha_vacuna_1 = %s, vacuna_2 = %s, fecha_vacuna_2 = %s, vacuna_3 = %s, fecha_vacuna_3 = %s, vacuna_4 = %s, fecha_vacuna_4 = %s, vacuna_5 = %s, fecha_vacuna_5 = %s, fecha_ultima_desparasitacion = %s, motivo_consulta = %s, sintomatologia = %s, tratamiento = %s, diagnostico_diferencial = %s, examenes_complementarios = %s, diagnostico_definitivo = %s, tratamiento_final = %s WHERE id = %s",
-                    (propietario, direccion, medico_responsable, cedula, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color, vacuna_1, fecha_vacuna_1, vacuna_2, fecha_vacuna_2, vacuna_3, fecha_vacuna_3, vacuna_4, fecha_vacuna_4, vacuna_5, fecha_vacuna_5, fecha_ultima_desparasitacion, motivo_consulta, sintomatologia, tratamiento, diagnostico_diferencial, examenes_complementarios, diagnostico_definitivo, tratamiento_final, id))
+        cursor.execute("UPDATE historia SET propietario = %s, direccion = %s, medico_responsable = %s, cedula = %s, fecha_creacion = %s, telefono = %s, nombre_paciente = %s, fecha_nacimiento = %s, especie = %s, raza = %s, sexo = %s, color = %s, vacuna_1 = %s, fecha_vacuna_1 = %s, vacuna_2 = %s, fecha_vacuna_2 = %s, vacuna_3 = %s, fecha_vacuna_3 = %s, vacuna_4 = %s, fecha_vacuna_4 = %s, vacuna_5 = %s, fecha_vacuna_5 = %s, fecha_ultima_desparasitacion = %s, motivo_consulta = %s, sintomatologia = %s, tratamiento = %s, diagnostico_diferencial = %s, examenes_complementarios = %s, diagnostico_definitivo = %s, tratamiento_final = %s, medicamento_1 = %s, posologia_1= %s, medicamento_2 = %s, posologia_2= %s, medicamento_3 = %s, posologia_3= %s, medicamento_4 = %s, posologia_4= %s, medicamento_5 = %s, posologia_5= %s, proxima_cita= %s WHERE id = %s",
+                    (propietario, direccion, medico_responsable, cedula, fecha_creacion, telefono, nombre_paciente, fecha_nacimiento, especie, raza, sexo, color, vacuna_1, fecha_vacuna_1, vacuna_2, fecha_vacuna_2, vacuna_3, fecha_vacuna_3, vacuna_4, fecha_vacuna_4, vacuna_5, fecha_vacuna_5, fecha_ultima_desparasitacion, motivo_consulta, sintomatologia, tratamiento, diagnostico_diferencial, examenes_complementarios, diagnostico_definitivo, tratamiento_final, medicamento_1, posologia_1, medicamento_2, posologia_2, medicamento_3, posologia_3, medicamento_4, posologia_4, medicamento_5, posologia_5, proxima_cita, id))
         mysql.get_db().commit()
         cursor.close()
 
