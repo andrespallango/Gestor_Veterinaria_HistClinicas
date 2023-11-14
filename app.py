@@ -342,6 +342,17 @@ def reporte_historia(id):
 
     return render_template('reporte_historia.html', historia=historia)
 
+# Ruta para mostrar el reporte de una historia clínica dermatológica
+@app.route('/reporte_historia_d/<int:id>')
+def reporte_historia_d(id):
+    cursor = mysql.get_db().cursor()
+    cursor.execute("SELECT * FROM historia_derma WHERE id = %s", (id,))
+    historia_derma = cursor.fetchone()
+    cursor.close()
+
+    return render_template('reporte_historia_d.html', historia_derma=historia_derma)
+
+
 
 if __name__ == '__main__':
     app.run()

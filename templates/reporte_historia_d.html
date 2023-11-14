@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="info-table" style="max-width: 80%;">
+    <tr>
+        <td class="label"><strong>ID: C.V.A.M.D-</strong></td>
+        <td>{{ historia_derma[0] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Médico Responsable:</strong></td>
+        <td>{{ historia_derma[4] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Propietario:</strong></td>
+        <td>{{ historia_derma[1] }}</td>
+        <td class="label"><strong>Fecha de Creación:</strong></td>
+        <td>{{ historia_derma[5] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Cédula:</strong></td>
+        <td>{{ historia_derma[2] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Dirección:</strong></td>
+        <td>{{ historia_derma[3] }}</td>
+        <td class="label"><strong>Teléfono:</strong></td>
+        <td>{{ historia_derma[6] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Nombre del Paciente:</strong></td>
+        <td>{{ historia_derma[7] }}</td>
+        <td class="label"><strong>Fecha de Nacimiento:</strong></td>
+        <td>{{ historia_derma[8] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Especie:</strong></td>
+        <td>{{ historia_derma[9] }}</td>
+        <td class="label"><strong>Raza:</strong></td>
+        <td>{{ historia_derma[10] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Sexo:</strong></td>
+        <td>{{ historia_derma[11] }}</td>
+        <td class="label"><strong>Color:</strong></td>
+        <td>{{ historia_derma[12] }}</td>
+    </tr>
+</table>
+
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
+    <tr>
+        <th class="label">Vacuna</th>
+        <th class="label">Fecha</th>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[13] }}</td>
+        <td>{{ historia_derma[14] if historia_derma[14] else '' }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[15] }}</td>
+        <td>{{ historia_derma[16] if historia_derma[16] else '' }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[17] }}</td>
+        <td>{{ historia_derma[18] if historia_derma[18] else '' }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[19] }}</td>
+        <td>{{ historia_derma[20] if historia_derma[20] else '' }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[21] }}</td>
+        <td>{{ historia_derma[22] if historia_derma[22] else '' }}</td>
+    </tr>
+</table>
+
+<table class="info-table" style="max-width: 80%;">
+    <tr>
+        <td class="label"><strong>Fecha Última Desparasitación:</strong></td>
+        <td>{{ historia_derma[23] if historia_derma[23] else '' }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Motivo de la Consulta:</strong></td>
+        <td>{{ historia_derma[24] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Sintomatología:</strong></td>
+        <td>{{ historia_derma[25] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Tratamiento:</strong></td>
+        <td>{{ historia_derma[26] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Diagnóstico Diferencial:</strong></td>
+        <td>{{ historia_derma[27] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Vive con otras mascotas?:</strong></td>
+        <td>{{ historia_derma[28] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Vive con niños en casa?:</strong></td>
+        <td>{{ historia_derma[29] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Algún miembro de la familia ha presentado problemas en la piel?:</strong></td>
+        <td>{{ historia_derma[30] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Tipo de comida?:</strong></td>
+        <td>{{ historia_derma[31] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Come golosinas?:</strong></td>
+        <td>{{ historia_derma[32] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Le cae el pelo?:</strong></td>
+        <td>{{ historia_derma[33] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Se rasca?:</strong></td>
+        <td>{{ historia_derma[34] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Ambiente en el que vive?:</strong></td>
+        <td>{{ historia_derma[35] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Pasa en el sol?:</strong></td>
+        <td>{{ historia_derma[36] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Pasa en la tierra?:</strong></td>
+        <td>{{ historia_derma[37] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Regularidad de la defecación?:</strong></td>
+        <td>{{ historia_derma[38] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Partes enrojecidas del cuerpo?:</strong></td>
+        <td>{{ historia_derma[39] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Fecha Ectoparásitos:</strong></td>
+        <td>{{ historia_derma[40] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Descripción Ectoparásitos:</strong></td>
+        <td>{{ historia_derma[41] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Regularidad de duchas en casa?:</strong></td>
+        <td>{{ historia_derma[42] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>¿Alergia a algun tipo de comida?:</strong></td>
+        <td>{{ historia_derma[43] }}</td>
+    </tr>
+</table>
+
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
+    <tr>
+        <td class="label"><strong>Raspado Cutaneo: </strong></td>
+        <td>{{ historia_derma[44] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Tricograma: </strong></td>
+        <td>{{ historia_derma[45] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Lampara de Wood: </strong></td>
+        <td>{{ historia_derma[46] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Reflejo Otopodal: </strong></td>
+        <td>{{ historia_derma[47] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Biopsia: </strong></td>
+        <td>{{ historia_derma[48] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Citologia: </strong></td>
+        <td>{{ historia_derma[48] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Antibiograma: </strong></td>
+        <td>{{ historia_derma[49] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Diagnóstico Definitivo:: </strong></td>
+        <td>{{ historia_derma[50] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Tratamiento: </strong></td>
+        <td>{{ historia_derma[51] }}</td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Raspado Cutaneo: </strong></td>
+        <td>{{ historia_derma[52] }}</td>
+    </tr>
+</table>
+
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
+    <tr>
+        <th class="label">Medicamento</th>
+        <th class="label">Posología</th>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[53] }}</td>
+        <td>{{ historia_derma[54] }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[55] }}</td>
+        <td>{{ historia_derma[56] }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[57] }}</td>
+        <td>{{ historia_derma[58] }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[59] }}</td>
+        <td>{{ historia_derma[60] }}</td>
+    </tr>
+    <tr>
+        <td>{{ historia_derma[61] }}</td>
+        <td>{{ historia_derma[62] }}</td>
+    </tr>
+</table>
+<table class="info-table" style="max-width: 80%;">
+    <tr>
+        <td class="label"><strong>Fecha de próxima cita:</strong></td>
+        <td>{{ historia_derma[63] if historia_derma[63] else '' }}</td>
+    </tr>
+
+</table>
+
+    <div class="button-container">
+        <br><br><a href="{{ url_for('editar_historia', id=historia_derma[0]) }}" class="btn btn-primary">Editar</a>
+        <a href="{{ url_for('confirmar_borrar_historia', id=historia_derma[0]) }}" class="btn btn-danger">Borrar</a>
+    </div>
+
+    <br>
+
+    <a href="javascript:history.back()" class="btn secundary-btn">Volver</a>
+{% endblock %}
