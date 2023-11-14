@@ -148,3 +148,22 @@ h1 {
     color: black; /* Cambia el color del texto */
 
 }
+
+.form-container {
+    width: 80%; /* Ajusta el ancho según sea necesario */
+    margin: 0 auto; /* Esto mantendrá el contenido centrado horizontalmente */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Cambia de 'center' a 'flex-start' */
+    height: 100vh;
+    margin: 0;
+}
+
+.center-content {
+    text-align: center;
+    margin-top: 20px; /* Ajusta según sea necesario para dejar espacio en la parte superior */
+}

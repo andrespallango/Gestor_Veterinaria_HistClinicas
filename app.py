@@ -18,6 +18,11 @@ mysql = MySQL(app)
 def index():
     return render_template('index.html')
 
+# Nueva ruta para tipo de historia
+@app.route('/tipo_historia')
+def tipo_historia():
+    return render_template('tipo_historia.html')
+
 @app.route('/nueva_historia', methods=['GET', 'POST'])
 def nueva_historia():
     error_message = None  # Inicializa el mensaje de error como nulo
@@ -83,9 +88,90 @@ def nueva_historia():
 
     return render_template('nueva_historia.html', error_message=error_message)
 
+# Nueva ruta para historia clínica dermatológica
+@app.route('/nueva_historia_d', methods=['GET', 'POST'])
+def nueva_historia_d():
+    error_message = None
 
+    if request.method == 'POST':
+        cedula_d = request.form['cedula_d']
+        propietario_d = request.form['propietario_d']
+        direccion_d = request.form['direccion_d']
+        medico_responsable_d = request.form['medico_responsable_d']
+        fecha_creacion_d = request.form['fecha_creacion_d']
+        telefono_d = request.form['telefono_d']
+        nombre_paciente_d = request.form['nombre_paciente_d']
+        fecha_nacimiento_d = request.form['fecha_nacimiento_d']
+        especie_d = request.form['especie_d']
+        raza_d = request.form['raza_d']
+        sexo_d = request.form['sexo_d']
+        color_d = request.form['color_d']
+        vacuna_1_d = request.form['vacuna_1_d']
+        fecha_vacuna_1_d = request.form['fecha_vacuna_1_d'] if request.form['fecha_vacuna_1_d'] else None
+        vacuna_2_d = request.form['vacuna_2_d']
+        fecha_vacuna_2_d = request.form['fecha_vacuna_2_d'] if request.form['fecha_vacuna_2_d'] else None
+        vacuna_3_d = request.form['vacuna_3_d']
+        fecha_vacuna_3_d = request.form['fecha_vacuna_3_d'] if request.form['fecha_vacuna_3_d'] else None
+        vacuna_4_d = request.form['vacuna_4_d']
+        fecha_vacuna_4_d = request.form['fecha_vacuna_4_d'] if request.form['fecha_vacuna_4_d'] else None
+        vacuna_5_d = request.form['vacuna_5_d']
+        fecha_vacuna_5_d = request.form['fecha_vacuna_5_d'] if request.form['fecha_vacuna_5_d'] else None
+        fecha_ultima_desparasitacion_d = request.form['fecha_ultima_desparasitacion_d'] if request.form['fecha_ultima_desparasitacion_d'] else None
+        motivo_consulta_d = request.form['motivo_consulta_d']
+        sintomatologia_d = request.form['sintomatologia_d']
+        tratamiento_d = request.form['tratamiento_d']
+        diagnostico_diferencial_d = request.form['diagnostico_diferencial_d']
+        otras_mascotas_d = request.form['otras_mascotas_d']
+        nin_casa_d = request.form['nin_casa_d']
+        familia_problema_d = request.form['familia_problema_d']
+        tipo_comida_d = request.form['tipo_comida_d']
+        golosinas_d = request.form['golosinas_d']
+        caida_pelo_d = request.form['caida_pelo_d']
+        se_rasca_d = request.form['se_rasca_d']
+        ambiente_d = request.form['ambiente_d']
+        pasa_sol_d = request.form['pasa_sol_d']
+        pasa_tierra_d = request.form['pasa_tierra_d']
+        defecacion_d = request.form['defecacion_d']
+        parte_enrojecida_d = request.form['parte_enrojecida_d']
+        fecha_ectoparasitos_d = request.form['fecha_ectoparasitos_d']
+        descrip_ectoparasitos_d = request.form['descrip_ectoparasitos_d']
+        duchas_casa_d = request.form['duchas_casa_d']
+        alergia_comida_d = request.form['alergia_comida_d']
+        rasp_cutaneo_d = request.form['rasp_cutaneo_d']
+        tricograma_d = request.form['tricograma_d']
+        lampara_wood_d = request.form['lampara_wood_d']
+        reflejo_otopodal_d = request.form['reflejo_otopodal_d']
+        biopsia_d = request.form['biopsia_d']
+        citologia_d = request.form['citologia_d']
+        antibiograma_d = request.form['antibiograma_d']
 
+        diagnostico_definitivo_d = request.form['diagnostico_definitivo_d']
+        tratamiento_final_d = request.form['tratamiento_final_d']
+        medicamento_1_d = request.form['medicamento_1_d']
+        posologia_medicamento_1_d = request.form['posologia_medicamento_1_d']
+        medicamento_2_d = request.form['medicamento_2_d']
+        posologia_medicamento_2_d = request.form['posologia_medicamento_2_d']
+        medicamento_3_d = request.form['medicamento_3_d']
+        posologia_medicamento_3_d = request.form['posologia_medicamento_3_d']
+        medicamento_4_d = request.form['medicamento_4_d']
+        posologia_medicamento_4_d = request.form['posologia_medicamento_4_d']
+        medicamento_5_d = request.form['medicamento_5_d']
+        posologia_medicamento_5_d = request.form['posologia_medicamento_5_d']
+        proxima_cita_d = request.form['proxima_cita_d'] if request.form['proxima_cita_d'] else None
 
+        # Verifica que los campos obligatorios estén llenos
+        if not (cedula_d and propietario_d and direccion_d and medico_responsable_d and fecha_creacion_d and telefono_d and
+                nombre_paciente_d and especie_d and sexo_d):
+            error_message = 'Por favor, llena todos los campos obligatorios.'
+        else:
+            cursor = mysql.get_db().cursor()
+            cursor.execute("INSERT INTO historia_derma (cedula_d, propietario_d, direccion_d, medico_responsable_d, fecha_creacion_d, telefono_d, nombre_paciente_d, fecha_nacimiento_d, especie_d, raza_d, sexo_d, color_d, vacuna_1_d, fecha_vacuna_1_d, vacuna_2_d, fecha_vacuna_2_d, vacuna_3_d, fecha_vacuna_3_d, vacuna_4_d, fecha_vacuna_4_d, vacuna_5_d, fecha_vacuna_5_d, fecha_ultima_desparasitacion_d, motivo_consulta_d, sintomatologia_d, tratamiento_d, diagnostico_diferencial_d, otras_mascotas_d, nin_casa_d, familia_problema_d, tipo_comida_d, golosinas_d,caida_pelo_d, se_rasca_d, ambiente_d, pasa_sol_d, pasa_tierra_d, defecacion_d,parte_enrojecida_d, fecha_ectoparasitos_d, descrip_ectoparasitos_d, duchas_casa_d, alergia_comida_d, rasp_cutaneo_d, tricograma_d, lampara_wood_d, reflejo_otopodal_d, biopsia_d, citologia_d, antibiograma_d, diagnostico_definitivo_d, tratamiento_final_d, medicamento_1_d, posologia_medicamento_1_d, medicamento_2_d, posologia_medicamento_2_d, medicamento_3_d, posologia_medicamento_3_d, medicamento_4_d, posologia_medicamento_4_d, medicamento_5_d, posologia_medicamento_5_d, proxima_cita_d) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                    (cedula_d, propietario_d, direccion_d, medico_responsable_d, fecha_creacion_d, telefono_d, nombre_paciente_d, fecha_nacimiento_d, especie_d, raza_d, sexo_d, color_d, vacuna_1_d, fecha_vacuna_1_d, vacuna_2_d, fecha_vacuna_2_d, vacuna_3_d, fecha_vacuna_3_d, vacuna_4_d, fecha_vacuna_4_d, vacuna_5_d, fecha_vacuna_5_d, fecha_ultima_desparasitacion_d, motivo_consulta_d, sintomatologia_d, tratamiento_d, diagnostico_diferencial_d, otras_mascotas_d, nin_casa_d, familia_problema_d, tipo_comida_d, golosinas_d,caida_pelo_d, se_rasca_d, ambiente_d, pasa_sol_d, pasa_tierra_d, defecacion_d,parte_enrojecida_d, fecha_ectoparasitos_d, descrip_ectoparasitos_d, duchas_casa_d, alergia_comida_d, rasp_cutaneo_d, tricograma_d, lampara_wood_d, reflejo_otopodal_d, biopsia_d, citologia_d, antibiograma_d, diagnostico_definitivo_d, tratamiento_final_d, medicamento_1_d, posologia_medicamento_1_d, medicamento_2_d, posologia_medicamento_2_d, medicamento_3_d, posologia_medicamento_3_d, medicamento_4_d, posologia_medicamento_4_d, medicamento_5_d, posologia_medicamento_5_d, proxima_cita_d))
+            mysql.get_db().commit()
+            cursor.close()
+            return redirect(url_for('historia_creada'))
+
+    return render_template('nueva_historia_d.html', error_message=error_message)
 
 # Nueva ruta para mostrar la página de historia creada con éxito
 @app.route('/historia_creada')

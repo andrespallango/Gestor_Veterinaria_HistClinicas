@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Crear Historia Clínica Dermatológica</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{ url_for('nueva_historia_d') }}">
+        Médico Responsable: <input type="text" name="medico_responsable_d" value="{{ request.form.medico_responsable_d or '' }}" required><br><br>
+        Propietario: <input type="text" name="propietario_d" value="{{ request.form.propietario_d or '' }}" required>
+        Fecha de Creación: <input type="date" name="fecha_creacion_d" value="{{ request.form.fecha_creacion_d or '' }}" required><br><br>
+        Cédula: <input type="text" name="cedula_d" value="{{ request.form.cedula_d or '' }}" required><br><br>
+        Dirección: <input type="text" name="direccion_d" value="{{ request.form.direccion_d or '' }}" required><br><br>
+        Teléfono: <input type="text" name="telefono_d" value="{{ request.form.telefono_d or '' }}"  required><br><br>
+        Nombre del Paciente: <input type="text" name="nombre_paciente_d" value="{{ request.form.nombre_paciente_d or '' }}" required>
+        Fecha de Nacimiento: <input type="date" name="fecha_nacimiento_d" value="{{ request.form.fecha_nacimiento_d or '' }}" required><br><br>
+        Especie: 
+        <select name="especie_d" required>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+        </select>
+        Sexo: 
+        <select name="sexo_d" required>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+        </select><br><br>
+        Raza: <input type="text" name="raza_d" value="{{ request.form.raza_d or '' }}" required>
+        Color: <input type="text" name="color_d" value="{{ request.form.color_d or '' }}" required><br><br>
+
+        Vacuna 1: <input type="text" name="vacuna_1_d" value="{{ request.form.vacuna_1_d or '' }}"> Fecha: <input type="date" name="fecha_vacuna_1_d" value="{{ request.form.fecha_vacuna_1_d or '' }}"><br><br>
+        Vacuna 2: <input type="text" name="vacuna_2_d" value="{{ request.form.vacuna_2_d or '' }}"> Fecha: <input type="date" name="fecha_vacuna_2_d" value="{{ request.form.fecha_vacuna_2_d or '' }}"><br><br>
+        Vacuna 3: <input type="text" name="vacuna_3_d" value="{{ request.form.vacuna_3_d or '' }}"> Fecha: <input type="date" name="fecha_vacuna_3_d" value="{{ request.form.fecha_vacuna_3_d or '' }}"><br><br>
+        Vacuna 4: <input type="text" name="vacuna_4_d" value="{{ request.form.vacuna_4_d or '' }}"> Fecha: <input type="date" name="fecha_vacuna_4_d" value="{{ request.form.fecha_vacuna_4_d or '' }}"><br><br>
+        Vacuna 5: <input type="text" name="vacuna_5_d" value="{{ request.form.vacuna_5_d or '' }}"> Fecha: <input type="date" name="fecha_vacuna_5_d" value="{{ request.form.fecha_vacuna_5_d or '' }}"><br><br>
+        Fecha de Última Desparasitación: <input type="date" name="fecha_ultima_desparasitacion_d" value="{{ request.form.fecha_ultima_desparasitacion_d or '' }}"><br><br>
+        Motivo de Consulta: <textarea name="motivo_consulta_d" rows="4" cols="50">{{ request.form.motivo_consulta_d or '' }}</textarea><br><br>
+        Sintomatología: <textarea name="sintomatologia_d" rows="4" cols="50">{{ request.form.sintomatologia_d or '' }}</textarea><br><br>
+        Tratamiento: <textarea name="tratamiento_d" rows="4" cols="50">{{ request.form.tratamiento_d or '' }}</textarea><br><br>
+        Diagnóstico Diferencial: <textarea name="diagnostico_diferencial_d" rows="4" cols="50">{{ request.form.diagnostico_diferencial_d or '' }}</textarea><br><br>
+        
+        ¿Vive con otras mascotas?: <input type="text" name="otras_mascotas_d" value="{{ request.form.otras_mascotas_d or '' }}"><br><br>
+        ¿Vive con niños en casa?: <input type="text" name="nin_casa_d" value="{{ request.form.nin_casa_d or '' }}"><br><br>
+        ¿Algún miembro de la familia ha presentado problemas en la piel?: <input type="text" name="familia_problema_d" value="{{ request.form.familia_problema_d or '' }}"><br><br>
+        ¿Tipo de Comida?: <textarea name="tipo_comida_d" rows="4" cols="50">{{ request.form.tipo_comida_d or '' }}</textarea><br><br>
+        ¿Come golosinas?: <input type="text" name="golosinas_d" value="{{ request.form.golosinas_d or '' }}"><br><br>
+        ¿Le cae el pelo?: <input type="text" name="caida_pelo_d" value="{{ request.form.caida_pelo_d or '' }}"><br><br>
+        ¿Se Rasca? Determine en la escala: <input type="text" name="se_rasca_d" value="{{ request.form.se_rasca_d or '' }}"><br><br>
+        Ambiente en el que vive:
+        <select name="ambiente_d" required>
+            <option value="Dentro de Casa" {{ 'selected' if request.form.ambiente_d == 'Dentro de Casa' }}>Dentro de Casa</option>
+            <option value="Fuera de Casa" {{ 'selected' if request.form.ambiente_d == 'Fuera de Casa' }}>Fuera de Casa</option>
+        </select>
+        <br><br>        
+        Pasa Mucho Tiempo al Sol: <input type="text" name="pasa_sol_d" value="{{ request.form.pasa_sol_d or '' }}"><br><br>
+        Pasa Tiempo en la Tierra: <input type="text" name="pasa_tierra_d" value="{{ request.form.pasa_tierra_d or '' }}"><br><br>
+        Patrón de Defecación: <input type="text" name="defecacion_d" value="{{ request.form.defecacion_d or '' }}"><br><br>
+        Parte Enrojecida o Inflamada: <input type="text" name="parte_enrojecida_d" value="{{ request.form.parte_enrojecida_d or '' }}"><br><br>
+        Fecha de Ectoparásitos: <input type="date" name="fecha_ectoparasitos_d" value="{{ request.form.fecha_ectoparasitos_d or '' }}"><br><br>
+        Descripción de Ectoparásitos: <textarea name="descrip_ectoparasitos_d" rows="4" cols="50">{{ request.form.descrip_ectoparasitos_d or '' }}</textarea><br><br>
+        Duchas en Casa: <input type="text" name="duchas_casa_d" value="{{ request.form.duchas_casa_d or '' }}"><br><br>
+        Alergia a la Comida: <input type="text" name="alergia_comida_d" value="{{ request.form.alergia_comida_d or '' }}"><br><br>
+        
+        Raspado cutaneo: <input type="text" name="rasp_cutaneo_d" value="{{ request.form.rasp_cutaneo_d or '' }}"><br><br>
+        Tricograma: <input type="text" name="tricograma_d" value="{{ request.form.tricograma_d or '' }}"><br><br>
+        Lámpara de Wood: <input type="text" name="lampara_wood_d" value="{{ request.form.lampara_wood_d or '' }}"><br><br>
+        Reflejo Otopodal: <input type="text" name="reflejo_otopodal_d" value="{{ request.form.reflejo_otopodal_d or '' }}"><br><br>
+        Biopsia: <input type="text" name="biopsia_d" value="{{ request.form.biopsia_d or '' }}"><br><br>
+        Citología: <input type="text" name="citologia_d" value="{{ request.form.citologia_d or '' }}"><br><br>
+        Antibiograma: <input type="text" name="antibiograma_d" value="{{ request.form.antibiograma_d or '' }}"><br><br>
+        
+        Diagnóstico Definitivo: <textarea name="diagnostico_definitivo_d" rows="4" cols="50">{{ request.form.diagnostico_definitivo_d or '' }}</textarea><br><br>
+        Tratamiento: <textarea name="tratamiento_final_d" rows="4" cols="50">{{ request.form.tratamiento_final_d or '' }}</textarea><br><br>
+        Medicamento: <input type="text" name="medicamento_1_d" value="{{ request.form.medicamento_1_d or '' }}">
+        Posología: <input type="text" name="posologia_medicamento_1_d" value="{{ request.form.posologia_1_d or '' }}"><br><br>
+        Medicamento: <input type="text" name="medicamento_2_d" value="{{ request.form.medicamento_2_d or '' }}">
+        Posología: <input type="text" name="posologia_medicamento_2_d" value="{{ request.form.posologia_2_d or '' }}"><br><br>
+        Medicamento: <input type="text" name="medicamento_3_d" value="{{ request.form.medicamento_3_d or '' }}">
+        Posología: <input type="text" name="posologia_medicamento_3_d" value="{{ request.form.posologia_3_d or '' }}"><br><br>
+        Medicamento: <input type="text" name="medicamento_4_d" value="{{ request.form.medicamento_4_d or '' }}">
+        Posología: <input type="text" name="posologia_medicamento_4_d" value="{{ request.form.posologia_4_d or '' }}"><br><br>
+        Medicamento: <input type="text" name="medicamento_5_d" value="{{ request.form.medicamento_5_d or '' }}">
+        Posología: <input type="text" name="posologia_medicamento_5_d" value="{{ request.form.posologia_5_d or '' }}"><br><br>
+        Fecha de Próxima Cita: <input type="date" name="proxima_cita_d" value="{{ request.form.proxima_cita_d or '' }}"><br><br>
+
+        <div class="button-container">
+            <input type="submit" value="Guardar Historia" class="btn btn-save">
+            <a href="{{ url_for('index') }}" class="btn secundary-btn">Volver</a>
+        </div>
+
+        {% if error_message %}
+            <div class="alert alert-danger">{{ error_message }}</div>
+        {% endif %}
+    </form>
+{% endblock %}

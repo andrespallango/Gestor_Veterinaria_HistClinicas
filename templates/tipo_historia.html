@@ -1,0 +1,9 @@
+<!-- tipo_historia.html -->
+{% extends "base.html" %}
+{% block content %}
+    <h1>Escoja el Tipo de Historia Clínica:</h1>
+    <a href="{{ url_for('nueva_historia') }}" class="btn btn-primary">Historia Clínica General</a>
+    <a href="{{ url_for('nueva_historia_d') }}" class="btn btn-primary">Historia Clínica Dermatológica</a>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Volver</a>
+
+{% endblock %}
