@@ -65,6 +65,19 @@
     list-style: none;
     padding: 0;
 }
+.columns-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    width: 48%; /* Ajusta el ancho según tus necesidades */
+    margin-bottom: 20px; /* Agrega un espacio entre las columnas */
+}
+
+.column h2 {
+    text-align: center;
+}
 
 /* Estilo para cada elemento de la lista (historia) */
 .history-item {

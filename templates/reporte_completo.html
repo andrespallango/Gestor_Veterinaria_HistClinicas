@@ -1,34 +1,66 @@
 {% extends "base.html" %}
 {% block content %}
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <h1>Reporte Completo de Historias Clínicas Generales</h1>
-    
-    {% if historias %}
-        <ul class="history-list">
-            {% for historia in historias %}
-                <li class="history-item">
-                    <table class="info-table">
-                        <tr>
-                            <td><strong>ID: C.V.A.M-</strong></td>
-                            <td>{{ historia[0] }}</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Propietario:</strong></td>
-                            <td>{{ historia[1] }}</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cédula:</strong></td>
-                            <td>{{ historia[2] }}</td>
-                        </tr>
-                    </table>
-                    <a href="{{ url_for('reporte_historia', id=historia[0]) }}" class="btn secondary-btn">Ver Historia Completa</a>
-                </li>
-                <hr> <!-- Línea separadora -->
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No se encontró ninguna historia clínica.</p>
-    {% endif %}
-    
+    <h1>Reporte Completo de Historias Clínicas</h1>
+
+    <div class="columns-container">
+        <div class="column">
+            <h2>Historias Generales</h2>
+            {% if historias %}
+                <ul class="history-list">
+                    {% for historia in historias %}
+                        <li class="history-item">
+                            <table class="info-table">
+                                <tr>
+                                    <td><strong>ID: C.V.A.M-</strong></td>
+                                    <td>{{ historia[0] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Propietario:</strong></td>
+                                    <td>{{ historia[1] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cédula:</strong></td>
+                                    <td>{{ historia[2] }}</td>
+                                </tr>                            </table>
+                            <a href="{{ url_for('reporte_historia', id=historia[0]) }}" class="btn secondary-btn">Ver Historia Completa</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No se encontró ninguna historia clínica general.</p>
+            {% endif %}
+        </div>
+        <hr class="vertical-line">
+
+        <div class="column">
+            <h2>Historias Dermatológicas</h2>
+            {% if historias_derma %}
+                <ul class="history-list">
+                    {% for historia_derma in historias_derma %}
+                        <li class="history-item">
+                            <table class="info-table">
+                                <tr>
+                                    <td><strong>ID: C.V.A.M.D-</strong></td>
+                                    <td>{{ historia_derma[0] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Propietario:</strong></td>
+                                    <td>{{ historia_derma[1] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cédula:</strong></td>
+                                    <td>{{ historia_derma[2] }}</td>
+                                </tr>                            </table>
+                            <a href="{{ url_for('reporte_historia', id=historia_derma[0]) }}" class="btn secondary-btn">Ver Historia Completa</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No se encontró ninguna historia clínica dermatológica.</p>
+            {% endif %}
+        </div>
+    </div>
+
     <a href="{{ url_for('index') }}" class="btn secondary-btn">Regresar</a>
 {% endblock %}

@@ -290,14 +290,23 @@ def historia_actualizada():
     return render_template('historia_actualizada.html')
 
 
-
+# Ruta para mostrar el reporte completo
 @app.route('/reporte_completo')
 def reporte_completo():
     cursor = mysql.get_db().cursor()
+    
+    # Consulta para obtener historias generales
     cursor.execute("SELECT * FROM historia")
     historias = cursor.fetchall()
+
+    # Consulta para obtener historias dermatológicas
+    cursor.execute("SELECT * FROM historia_derma")
+    historias_derma = cursor.fetchall()
+
     cursor.close()
-    return render_template('reporte_completo.html', historias=historias)
+
+    return render_template('reporte_completo.html', historias=historias, historias_derma=historias_derma)
+
 
 # Ruta para mostrar el reporte de una historia clínica
 @app.route('/reporte_historia/<int:id>')
