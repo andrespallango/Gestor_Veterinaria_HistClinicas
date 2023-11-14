@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Resultados de la Búsqueda de Historias Clínicas Dermatológicas</h1>
+    <ul class="history-list">
+        {% for historia_derma in historias_dermatologicas %}
+            <li class="history-item">
+                <table class="info-table">
+                    <tr>
+                        <td><strong>ID: C.V.A.M.D- </strong></td>
+                        <td>{{ historia_derma[0] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Propietario:</strong></td>
+                        <td>{{ historia_derma[1] }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cédula:</strong></td>
+                        <td>{{ historia_derma[2] }}</td>
+                    </tr>
+                </table>
+                <a href="{{ url_for('reporte_historia', id=historia_derma[0]) }}" class="btn secondary-btn">Ver Historia Completa</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}" class="btn secondary-btn">Regresar</a>
+{% endblock %}

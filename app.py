@@ -23,6 +23,11 @@ def index():
 def tipo_historia():
     return render_template('tipo_historia.html')
 
+# Nueva ruta para tipo de consulta
+@app.route('/tipo_consulta')
+def tipo_consulta():
+    return render_template('tipo_consulta.html')
+
 @app.route('/nueva_historia', methods=['GET', 'POST'])
 def nueva_historia():
     error_message = None  # Inicializa el mensaje de error como nulo
@@ -178,6 +183,7 @@ def nueva_historia_d():
 def historia_creada():
     return render_template('historia_creada.html')
 
+
 # Página para buscar historias clínicas por cédula
 @app.route('/buscar_historia', methods=['GET', 'POST'])
 def buscar_historia():
@@ -195,6 +201,24 @@ def buscar_historia():
             return render_template('error_busqueda.html', crear_nueva=True)
 
     return render_template('buscar_historia.html')
+
+# Página para buscar historias clínicas dermatológicas por cédula
+@app.route('/buscar_historia_d', methods=['GET', 'POST'])
+def buscar_historia_d():
+    if request.method == 'POST':
+        cedula_d = request.form['cedula_d']
+
+        cursor = mysql.get_db().cursor()
+        cursor.execute("SELECT * FROM historia_derma WHERE cedula_d = %s", (cedula_d,))
+        data = cursor.fetchall()
+        cursor.close()
+
+        if data:
+            return render_template('resultado_busqueda_dermatologica.html', historias_dermatologicas=data)
+        else:
+            return render_template('error_busqueda.html', crear_nueva=True)
+
+    return render_template('buscar_historia_d.html')
 
 # Ruta para mostrar la página de confirmación de borrado
 @app.route('/confirmar_borrar_historia/<int:id>')
