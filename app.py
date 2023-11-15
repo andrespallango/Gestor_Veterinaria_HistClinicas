@@ -298,13 +298,46 @@ def editar_historia(id):
         mysql.get_db().commit()
         cursor.close()
 
-
-
         return redirect(url_for('historia_actualizada'))
 
     return render_template('editar_historia.html', historia=historia)
 
+# Ruta para mostrar la página de edición de historia clínica dermatológica
+@app.route('/editar_historia_d/<int:id>', methods=['GET', 'POST'])
+def editar_historia_d(id):
+    cursor = mysql.get_db().cursor()
+    cursor.execute("SELECT * FROM historia_derma WHERE id = %s", (id,))
+    historia_derma = cursor.fetchone()
+    cursor.close()
 
+    if request.method == 'POST':
+        id = request.form['id']
+        cedula_d = request.form['cedula_d']
+        propietario_d = request.form['propietario_d']
+        direccion_d = request.form['direccion_d']
+        medico_responsable_d = request.form['medico_responsable_d']
+        fecha_creacion_d = request.form['fecha_creacion_d']  
+        telefono_d = request.form['telefono_d']
+        nombre_paciente_d = request.form['nombre_paciente_d']
+        fecha_nacimiento_d = request.form['fecha_nacimiento_d']
+        especie_d = request.form['especie_d']
+        raza_d = request.form['raza_d']
+        sexo_d = request.form['sexo_d']
+        color_d = request.form['color_d']
+        
+
+
+        cursor = mysql.get_db().cursor()
+        cursor.execute("UPDATE historia_derma SET propietario_d = %s, direccion_d = %s, medico_responsable_d = %s, cedula_d = %s, fecha_creacion_d = %s, telefono_d = %s, nombre_paciente_d = %s, fecha_nacimiento_d = %s, especie_d = %s, raza_d = %s, sexo_d = %s, color_d = %s WHERE id = %s",
+                       (propietario_d, direccion_d, medico_responsable_d, cedula_d, fecha_creacion_d, telefono_d, nombre_paciente_d, fecha_nacimiento_d, especie_d, raza_d, sexo_d, color_d, id))
+        mysql.get_db().commit()
+        cursor.close()
+
+
+
+        return redirect(url_for('historia_actualizada'))
+
+    return render_template('editar_historia_d.html', historia_derma=historia_derma)
 
 
 
