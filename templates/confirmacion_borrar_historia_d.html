@@ -2,12 +2,12 @@
 {% block content %}
 
     {% if historia_borrada %}
-        <div class="alert alert-success">La historia ha sido borrada con éxito.</div>
+        <div class="alert alert-success">La historia dermatológica ha sido borrada con éxito.</div>
         <a href="{{ url_for('index') }}" class="btn secondary-btn">Regresar</a>
     {% else %}
-        <div class="alert alert-warning">¿Estás seguro de que deseas borrar esta historia clínica general?</div>
+        <div class="alert alert-warning">¿Estás seguro de que deseas borrar esta historia dermatológica?</div>
         <div class="button-container">
-            <a href="{{ url_for('borrar_historia', id=id) }}" class="btn btn-danger">Sí</a>
+            <a href="{{ url_for('borrar_historia_d', id=id) }}" class="btn btn-danger">Sí</a>
             <a href="{{ url_for('index') }}" class="btn secondary-btn">No</a>
         </div>
         

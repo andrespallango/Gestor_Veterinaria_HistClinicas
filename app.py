@@ -226,7 +226,6 @@ def confirmar_borrar_historia(id):
     historia_borrada = False  # Inicialmente, la historia no ha sido borrada
     return render_template('confirmacion_borrar_historia.html', id=id, historia_borrada=historia_borrada)
 
-
 # Ruta para borrar una historia
 @app.route('/borrar_historia/<int:id>')
 def borrar_historia(id):
@@ -237,6 +236,22 @@ def borrar_historia(id):
     historia_borrada = True  # La historia ha sido borrada con éxito
     return render_template('confirmacion_borrar_historia.html', id=id, historia_borrada=historia_borrada)
 
+# Ruta para mostrar la página de confirmación de borrado de historia dermatológica
+@app.route('/confirmar_borrar_historia_d/<int:id>')
+def confirmar_borrar_historia_d(id):
+    historia_borrada = False  # Inicialmente, la historia no ha sido borrada
+    return render_template('confirmacion_borrar_historia_d.html', id=id, historia_borrada=historia_borrada)
+
+
+# Ruta para borrar una historia dermatológica
+@app.route('/borrar_historia_d/<int:id>')
+def borrar_historia_d(id):
+    cursor = mysql.get_db().cursor()
+    cursor.execute("DELETE FROM historia_derma WHERE id = %s", (id,))
+    mysql.get_db().commit()
+    cursor.close()
+    historia_borrada = True  # La historia dermatológica ha sido borrada con éxito
+    return render_template('confirmacion_borrar_historia_d.html', id=id, historia_borrada=historia_borrada)
 
 
 # Ruta para mostrar la página de edición de historia clínica
@@ -363,10 +378,21 @@ def editar_historia_d(id):
         antibiograma_d = request.form['antibiograma_d']
         diagnostico_definitivo_d = request.form['diagnostico_definitivo_d']
         tratamiento_final_d = request.form['tratamiento_final_d']
+        medicamento_1_d = request.form['medicamento_1_d']
+        posologia_medicamento_1_d = request.form['posologia_medicamento_1_d']
+        medicamento_2_d = request.form['medicamento_2_d']
+        posologia_medicamento_2_d = request.form['posologia_medicamento_2_d']
+        medicamento_3_d = request.form['medicamento_3_d']
+        posologia_medicamento_3_d = request.form['posologia_medicamento_3_d']
+        medicamento_4_d = request.form['medicamento_4_d']
+        posologia_medicamento_4_d = request.form['posologia_medicamento_4_d']
+        medicamento_5_d = request.form['medicamento_5_d']
+        posologia_medicamento_5_d = request.form['posologia_medicamento_5_d']
+        proxima_cita_d = request.form['proxima_cita_d']
 
         cursor = mysql.get_db().cursor()
-        cursor.execute("UPDATE historia_derma SET propietario_d = %s, direccion_d = %s, medico_responsable_d = %s, cedula_d = %s, fecha_creacion_d = %s, telefono_d = %s, nombre_paciente_d = %s, fecha_nacimiento_d = %s, especie_d = %s, raza_d = %s, color_d = %s, vacuna_1_d = %s, fecha_vacuna_1_d = %s, vacuna_2_d = %s, fecha_vacuna_2_d = %s, vacuna_3_d = %s, fecha_vacuna_3_d = %s, vacuna_4_d = %s, fecha_vacuna_4_d = %s, vacuna_5_d = %s, fecha_vacuna_5_d = %s, fecha_ultima_desparasitacion_d = %s, motivo_consulta_d = %s, sintomatologia_d = %s, tratamiento_d = %s, diagnostico_diferencial_d = %s, otras_mascotas_d = %s, nin_casa_d = %s, familia_problema_d = %s, tipo_comida_d = %s, golosinas_d = %s, caida_pelo_d = %s, se_rasca_d = %s, ambiente_d = %s, pasa_sol_d = %s, pasa_tierra_d = %s, defecacion_d = %s, parte_enrojecida_d = %s, fecha_ectoparasitos_d = %s, descrip_ectoparasitos_d = %s, duchas_casa_d = %s, alergia_comida_d = %s, rasp_cutaneo_d = %s, tricograma_d = %s, lampara_wood_d = %s, reflejo_otopodal_d = %s, biopsia_d = %s, citologia_d = %s, antibiograma_d = %s, diagnostico_definitivo_d = %s, tratamiento_final_d = %s WHERE id = %s",
-                    (propietario_d, direccion_d, medico_responsable_d, cedula_d, fecha_creacion_d, telefono_d, nombre_paciente_d, fecha_nacimiento_d, especie_d, raza_d, color_d, vacuna_1_d, fecha_vacuna_1_d, vacuna_2_d, fecha_vacuna_2_d, vacuna_3_d, fecha_vacuna_3_d, vacuna_4_d, fecha_vacuna_4_d, vacuna_5_d, fecha_vacuna_5_d, fecha_ultima_desparasitacion_d, motivo_consulta_d, sintomatologia_d, tratamiento_d, diagnostico_diferencial_d, otras_mascotas_d, nin_casa_d, familia_problema_d, tipo_comida_d, golosinas_d, caida_pelo_d, se_rasca_d, ambiente_d, pasa_sol_d, pasa_tierra_d, defecacion_d, parte_enrojecida_d, fecha_ectoparasitos_d, descrip_ectoparasitos_d, duchas_casa_d, alergia_comida_d, rasp_cutaneo_d, tricograma_d, lampara_wood_d, reflejo_otopodal_d, biopsia_d, citologia_d, antibiograma_d, diagnostico_definitivo_d, tratamiento_final_d, id))
+        cursor.execute("UPDATE historia_derma SET propietario_d = %s, direccion_d = %s, medico_responsable_d = %s, cedula_d = %s, fecha_creacion_d = %s, telefono_d = %s, nombre_paciente_d = %s, fecha_nacimiento_d = %s, especie_d = %s, raza_d = %s, color_d = %s, vacuna_1_d = %s, fecha_vacuna_1_d = %s, vacuna_2_d = %s, fecha_vacuna_2_d = %s, vacuna_3_d = %s, fecha_vacuna_3_d = %s, vacuna_4_d = %s, fecha_vacuna_4_d = %s, vacuna_5_d = %s, fecha_vacuna_5_d = %s, fecha_ultima_desparasitacion_d = %s, motivo_consulta_d = %s, sintomatologia_d = %s, tratamiento_d = %s, diagnostico_diferencial_d = %s, otras_mascotas_d = %s, nin_casa_d = %s, familia_problema_d = %s, tipo_comida_d = %s, golosinas_d = %s, caida_pelo_d = %s, se_rasca_d = %s, ambiente_d = %s, pasa_sol_d = %s, pasa_tierra_d = %s, defecacion_d = %s, parte_enrojecida_d = %s, fecha_ectoparasitos_d = %s, descrip_ectoparasitos_d = %s, duchas_casa_d = %s, alergia_comida_d = %s, rasp_cutaneo_d = %s, tricograma_d = %s, lampara_wood_d = %s, reflejo_otopodal_d = %s, biopsia_d = %s, citologia_d = %s, antibiograma_d = %s, diagnostico_definitivo_d = %s, tratamiento_final_d = %s, medicamento_1_d = %s, posologia_medicamento_1_d = %s, medicamento_2_d = %s, posologia_medicamento_2_d = %s, medicamento_3_d = %s, posologia_medicamento_3_d = %s, medicamento_4_d = %s, posologia_medicamento_4_d = %s, medicamento_5_d = %s, posologia_medicamento_5_d = %s, proxima_cita_d = %s WHERE id = %s",
+                        (propietario_d, direccion_d, medico_responsable_d, cedula_d, fecha_creacion_d, telefono_d, nombre_paciente_d, fecha_nacimiento_d, especie_d, raza_d, color_d, vacuna_1_d, fecha_vacuna_1_d, vacuna_2_d, fecha_vacuna_2_d, vacuna_3_d, fecha_vacuna_3_d, vacuna_4_d, fecha_vacuna_4_d, vacuna_5_d, fecha_vacuna_5_d, fecha_ultima_desparasitacion_d, motivo_consulta_d, sintomatologia_d, tratamiento_d, diagnostico_diferencial_d, otras_mascotas_d, nin_casa_d, familia_problema_d, tipo_comida_d, golosinas_d, caida_pelo_d, se_rasca_d, ambiente_d, pasa_sol_d, pasa_tierra_d, defecacion_d, parte_enrojecida_d, fecha_ectoparasitos_d, descrip_ectoparasitos_d, duchas_casa_d, alergia_comida_d, rasp_cutaneo_d, tricograma_d, lampara_wood_d, reflejo_otopodal_d, biopsia_d, citologia_d, antibiograma_d, diagnostico_definitivo_d, tratamiento_final_d, medicamento_1_d, posologia_medicamento_1_d, medicamento_2_d, posologia_medicamento_2_d, medicamento_3_d, posologia_medicamento_3_d, medicamento_4_d, posologia_medicamento_4_d, medicamento_5_d, posologia_medicamento_5_d, proxima_cita_d, id))
         mysql.get_db().commit()
         cursor.close()
 
