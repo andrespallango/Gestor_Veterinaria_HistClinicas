@@ -322,17 +322,53 @@ def editar_historia_d(id):
         fecha_nacimiento_d = request.form['fecha_nacimiento_d']
         especie_d = request.form['especie_d']
         raza_d = request.form['raza_d']
-        sexo_d = request.form['sexo_d']
         color_d = request.form['color_d']
-        
-
+        vacuna_1_d = request.form['vacuna_1_d']
+        fecha_vacuna_1_d = request.form['fecha_vacuna_1_d']
+        vacuna_2_d = request.form['vacuna_2_d']
+        fecha_vacuna_2_d = request.form['fecha_vacuna_2_d']
+        vacuna_3_d = request.form['vacuna_3_d']
+        fecha_vacuna_3_d = request.form['fecha_vacuna_3_d']
+        vacuna_4_d = request.form['vacuna_4_d']
+        fecha_vacuna_4_d = request.form['fecha_vacuna_4_d']
+        vacuna_5_d = request.form['vacuna_5_d']
+        fecha_vacuna_5_d = request.form['fecha_vacuna_5_d']
+        fecha_ultima_desparasitacion_d = request.form['fecha_ultima_desparasitacion_d']
+        motivo_consulta_d = request.form['motivo_consulta_d']
+        sintomatologia_d = request.form['sintomatologia_d']
+        tratamiento_d = request.form['tratamiento_d']
+        diagnostico_diferencial_d = request.form['diagnostico_diferencial_d']
+        otras_mascotas_d = request.form['otras_mascotas_d']
+        nin_casa_d = request.form['nin_casa_d']
+        familia_problema_d = request.form['familia_problema_d']
+        tipo_comida_d = request.form['tipo_comida_d']
+        golosinas_d = request.form['golosinas_d']
+        caida_pelo_d = request.form['caida_pelo_d']
+        se_rasca_d = request.form['se_rasca_d']
+        ambiente_d = request.form['ambiente_d']
+        pasa_sol_d = request.form['pasa_sol_d']
+        pasa_tierra_d = request.form['pasa_tierra_d']
+        defecacion_d = request.form['defecacion_d']
+        parte_enrojecida_d = request.form['parte_enrojecida_d']
+        fecha_ectoparasitos_d = request.form['fecha_ectoparasitos_d']
+        descrip_ectoparasitos_d = request.form['descrip_ectoparasitos_d']
+        duchas_casa_d = request.form['duchas_casa_d']
+        alergia_comida_d = request.form['alergia_comida_d']
+        rasp_cutaneo_d = request.form['rasp_cutaneo_d']
+        tricograma_d = request.form['tricograma_d']
+        lampara_wood_d = request.form['lampara_wood_d']
+        reflejo_otopodal_d = request.form['reflejo_otopodal_d']
+        biopsia_d = request.form['biopsia_d']
+        citologia_d = request.form['citologia_d']
+        antibiograma_d = request.form['antibiograma_d']
+        diagnostico_definitivo_d = request.form['diagnostico_definitivo_d']
+        tratamiento_final_d = request.form['tratamiento_final_d']
 
         cursor = mysql.get_db().cursor()
-        cursor.execute("UPDATE historia_derma SET propietario_d = %s, direccion_d = %s, medico_responsable_d = %s, cedula_d = %s, fecha_creacion_d = %s, telefono_d = %s, nombre_paciente_d = %s, fecha_nacimiento_d = %s, especie_d = %s, raza_d = %s, sexo_d = %s, color_d = %s WHERE id = %s",
-                       (propietario_d, direccion_d, medico_responsable_d, cedula_d, fecha_creacion_d, telefono_d, nombre_paciente_d, fecha_nacimiento_d, especie_d, raza_d, sexo_d, color_d, id))
+        cursor.execute("UPDATE historia_derma SET propietario_d = %s, direccion_d = %s, medico_responsable_d = %s, cedula_d = %s, fecha_creacion_d = %s, telefono_d = %s, nombre_paciente_d = %s, fecha_nacimiento_d = %s, especie_d = %s, raza_d = %s, color_d = %s, vacuna_1_d = %s, fecha_vacuna_1_d = %s, vacuna_2_d = %s, fecha_vacuna_2_d = %s, vacuna_3_d = %s, fecha_vacuna_3_d = %s, vacuna_4_d = %s, fecha_vacuna_4_d = %s, vacuna_5_d = %s, fecha_vacuna_5_d = %s, fecha_ultima_desparasitacion_d = %s, motivo_consulta_d = %s, sintomatologia_d = %s, tratamiento_d = %s, diagnostico_diferencial_d = %s, otras_mascotas_d = %s, nin_casa_d = %s, familia_problema_d = %s, tipo_comida_d = %s, golosinas_d = %s, caida_pelo_d = %s, se_rasca_d = %s, ambiente_d = %s, pasa_sol_d = %s, pasa_tierra_d = %s, defecacion_d = %s, parte_enrojecida_d = %s, fecha_ectoparasitos_d = %s, descrip_ectoparasitos_d = %s, duchas_casa_d = %s, alergia_comida_d = %s, rasp_cutaneo_d = %s, tricograma_d = %s, lampara_wood_d = %s, reflejo_otopodal_d = %s, biopsia_d = %s, citologia_d = %s, antibiograma_d = %s, diagnostico_definitivo_d = %s, tratamiento_final_d = %s WHERE id = %s",
+                    (propietario_d, direccion_d, medico_responsable_d, cedula_d, fecha_creacion_d, telefono_d, nombre_paciente_d, fecha_nacimiento_d, especie_d, raza_d, color_d, vacuna_1_d, fecha_vacuna_1_d, vacuna_2_d, fecha_vacuna_2_d, vacuna_3_d, fecha_vacuna_3_d, vacuna_4_d, fecha_vacuna_4_d, vacuna_5_d, fecha_vacuna_5_d, fecha_ultima_desparasitacion_d, motivo_consulta_d, sintomatologia_d, tratamiento_d, diagnostico_diferencial_d, otras_mascotas_d, nin_casa_d, familia_problema_d, tipo_comida_d, golosinas_d, caida_pelo_d, se_rasca_d, ambiente_d, pasa_sol_d, pasa_tierra_d, defecacion_d, parte_enrojecida_d, fecha_ectoparasitos_d, descrip_ectoparasitos_d, duchas_casa_d, alergia_comida_d, rasp_cutaneo_d, tricograma_d, lampara_wood_d, reflejo_otopodal_d, biopsia_d, citologia_d, antibiograma_d, diagnostico_definitivo_d, tratamiento_final_d, id))
         mysql.get_db().commit()
         cursor.close()
-
 
 
         return redirect(url_for('historia_actualizada'))
