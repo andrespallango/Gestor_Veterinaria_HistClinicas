@@ -1,5 +1,6 @@
-1. Clic derecho y selecciona "Abrir en terminal"
-2. Escribe lo siguiente sin las comillas: "pythonw app.py"
-3. Cierra la ventana y podrás acceder a la web con la direccion:
+1. Clic derecho en cualquier lado dentro de la carpeta y selecciona "Abrir en terminal"
+2. Escribe lo siguiente sin las comillas: "pythonw app.py" y pulsa enter
+3. Cierra la ventana del terminal
+4. Copia y pega la siguiente direccion en cualquier navegador y podrás acceder a la web:
 
 http://127.0.0.1:5000/ 
