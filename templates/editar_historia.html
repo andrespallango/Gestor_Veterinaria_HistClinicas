@@ -45,13 +45,13 @@
         Vacuna 5: <input type="text" name="vacuna_5" value="{{ historia[21] if historia else '' }}">
         Fecha: <input type="date" name="fecha_vacuna_5" value="{{ historia[22] or '' }}"><br><br>
         Fecha de Última Desparasitación: <input type="date" name="fecha_ultima_desparasitacion" value="{{ historia[23] or '' }}"><br><br>
-        Motivo de Consulta:<textarea name="motivo_consulta" rows="5">{{ historia[24] if historia else '' }}</textarea><br><br>
-        Sintomatología: <textarea name="sintomatologia" rows="5">{{ historia[25] if historia else '' }}</textarea><br><br>
-        Tratamientos o Enfermedades: <textarea name="tratamiento" rows="5">{{ historia[26] if historia else '' }}</textarea><br><br>
-        Diagnóstico Diferencial: <textarea name="diagnostico_diferencial" rows="5">{{ historia[27] if historia else '' }}</textarea><br><br>
-        Exámenes Complementarios: <textarea name="examenes_complementarios" rows="5">{{ historia[28] if historia else '' }}</textarea><br><br>
-        Diagnóstico Definitivo: <textarea name="diagnostico_definitivo" rows="5">{{ historia[29] if historia else '' }}</textarea><br><br>
-        Tratamiento: <textarea name="tratamiento_final" rows="5">{{ historia[30] if historia else '' }}</textarea><br><br>
+        Motivo de Consulta:<br><textarea name="motivo_consulta" rows="5" cols="50">{{ historia[24] if historia else '' }}</textarea><br><br>
+        Sintomatología: <br><textarea name="sintomatologia" rows="5" cols="50">{{ historia[25] if historia else '' }}</textarea><br><br>
+        Tratamientos o Enfermedades: <br><textarea name="tratamiento" rows="5" cols="50">{{ historia[26] if historia else '' }}</textarea><br><br>
+        Diagnóstico Diferencial: <br><textarea name="diagnostico_diferencial" rows="5" cols="50">{{ historia[27] if historia else '' }}</textarea><br><br>
+        Exámenes Complementarios: <br><textarea name="examenes_complementarios" rows="5" cols="50">{{ historia[28] if historia else '' }}</textarea><br><br>
+        Diagnóstico Definitivo: <br><textarea name="diagnostico_definitivo" rows="5" cols="50">{{ historia[29] if historia else '' }}</textarea><br><br>
+        Tratamiento: <br><textarea name="tratamiento_final" rows="5" cols="50">{{ historia[30] if historia else '' }}</textarea><br><br>
         Medicamento: <input type="text" name="medicamento_1" value="{{ historia[31] or '' }}">
         Posología: <input type="text" name="posologia_1" value="{{ historia[32] or '' }}"><br><br>
         Medicamento: <input type="text" name="medicamento_2" value="{{ historia[33] or '' }}">

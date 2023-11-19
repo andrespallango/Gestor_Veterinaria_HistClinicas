@@ -142,14 +142,22 @@
         <td class="label"><strong>¿Partes enrojecidas del cuerpo?:</strong></td>
         <td>{{ historia_derma[39] }}</td>
     </tr>
+</table>
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
-        <td class="label"><strong>Fecha Ectoparásitos:</strong></td>
+        <td class="label" colspan="2" style="text-align: center;"><strong>¿Control de Ectoparásitos?</strong></td>
+    </tr>
+    <tr>
+        <td class="label"><strong>Fecha:</strong></td>
         <td>{{ historia_derma[40] }}</td>
     </tr>
     <tr>
-        <td class="label"><strong>Descripción Ectoparásitos:</strong></td>
+        <td class="label"><strong>Descripción:</strong></td>
         <td>{{ historia_derma[41] }}</td>
     </tr>
+</table>
+
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <td class="label"><strong>¿Regularidad de duchas en casa?:</strong></td>
         <td>{{ historia_derma[42] }}</td>
@@ -237,12 +245,12 @@
 
 </table>
 
-    <div class="button-container">
+    <div class="button-container imprimir">
         <br><br><a href="{{ url_for('editar_historia_d', id=historia_derma[0]) }}" class="btn btn-primary">Editar</a>
         <a href="{{ url_for('confirmar_borrar_historia_d', id=historia_derma[0]) }}" class="btn btn-danger">Borrar</a>
     </div>
 
     <br>
 
-    <a href="javascript:history.back()" class="btn secundary-btn">Volver</a>
+    <a href="javascript:history.back()" class="btn secundary-btn imprimir">Volver</a>
 {% endblock %}

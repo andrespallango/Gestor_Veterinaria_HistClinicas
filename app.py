@@ -138,7 +138,7 @@ def nueva_historia_d():
         pasa_tierra_d = request.form['pasa_tierra_d']
         defecacion_d = request.form['defecacion_d']
         parte_enrojecida_d = request.form['parte_enrojecida_d']
-        fecha_ectoparasitos_d = request.form['fecha_ectoparasitos_d']
+        fecha_ectoparasitos_d = request.form['fecha_ectoparasitos_d'] if request.form['fecha_ectoparasitos_d'] else None
         descrip_ectoparasitos_d = request.form['descrip_ectoparasitos_d']
         duchas_casa_d = request.form['duchas_casa_d']
         alergia_comida_d = request.form['alergia_comida_d']
@@ -339,16 +339,16 @@ def editar_historia_d(id):
         raza_d = request.form['raza_d']
         color_d = request.form['color_d']
         vacuna_1_d = request.form['vacuna_1_d']
-        fecha_vacuna_1_d = request.form['fecha_vacuna_1_d']
+        fecha_vacuna_1_d = request.form['fecha_vacuna_1_d'] if request.form['fecha_vacuna_1_d'] else None
         vacuna_2_d = request.form['vacuna_2_d']
-        fecha_vacuna_2_d = request.form['fecha_vacuna_2_d']
+        fecha_vacuna_2_d = request.form['fecha_vacuna_2_d'] if request.form['fecha_vacuna_2_d'] else None
         vacuna_3_d = request.form['vacuna_3_d']
-        fecha_vacuna_3_d = request.form['fecha_vacuna_3_d']
+        fecha_vacuna_3_d = request.form['fecha_vacuna_3_d'] if request.form['fecha_vacuna_3_d'] else None
         vacuna_4_d = request.form['vacuna_4_d']
-        fecha_vacuna_4_d = request.form['fecha_vacuna_4_d']
+        fecha_vacuna_4_d = request.form['fecha_vacuna_4_d'] if request.form['fecha_vacuna_4_d'] else None
         vacuna_5_d = request.form['vacuna_5_d']
-        fecha_vacuna_5_d = request.form['fecha_vacuna_5_d']
-        fecha_ultima_desparasitacion_d = request.form['fecha_ultima_desparasitacion_d']
+        fecha_vacuna_5_d = request.form['fecha_vacuna_5_d'] if request.form['fecha_vacuna_5_d'] else None
+        fecha_ultima_desparasitacion_d = request.form['fecha_ultima_desparasitacion_d'] if request.form['fecha_ultima_desparasitacion_d'] else None
         motivo_consulta_d = request.form['motivo_consulta_d']
         sintomatologia_d = request.form['sintomatologia_d']
         tratamiento_d = request.form['tratamiento_d']
@@ -365,7 +365,7 @@ def editar_historia_d(id):
         pasa_tierra_d = request.form['pasa_tierra_d']
         defecacion_d = request.form['defecacion_d']
         parte_enrojecida_d = request.form['parte_enrojecida_d']
-        fecha_ectoparasitos_d = request.form['fecha_ectoparasitos_d']
+        fecha_ectoparasitos_d = request.form['fecha_ectoparasitos_d'] if request.form['fecha_ectoparasitos_d'] else None
         descrip_ectoparasitos_d = request.form['descrip_ectoparasitos_d']
         duchas_casa_d = request.form['duchas_casa_d']
         alergia_comida_d = request.form['alergia_comida_d']
@@ -388,7 +388,7 @@ def editar_historia_d(id):
         posologia_medicamento_4_d = request.form['posologia_medicamento_4_d']
         medicamento_5_d = request.form['medicamento_5_d']
         posologia_medicamento_5_d = request.form['posologia_medicamento_5_d']
-        proxima_cita_d = request.form['proxima_cita_d']
+        proxima_cita_d = request.form['proxima_cita_d'] if request.form['proxima_cita_d'] else None
 
         cursor = mysql.get_db().cursor()
         cursor.execute("UPDATE historia_derma SET propietario_d = %s, direccion_d = %s, medico_responsable_d = %s, cedula_d = %s, fecha_creacion_d = %s, telefono_d = %s, nombre_paciente_d = %s, fecha_nacimiento_d = %s, especie_d = %s, raza_d = %s, color_d = %s, vacuna_1_d = %s, fecha_vacuna_1_d = %s, vacuna_2_d = %s, fecha_vacuna_2_d = %s, vacuna_3_d = %s, fecha_vacuna_3_d = %s, vacuna_4_d = %s, fecha_vacuna_4_d = %s, vacuna_5_d = %s, fecha_vacuna_5_d = %s, fecha_ultima_desparasitacion_d = %s, motivo_consulta_d = %s, sintomatologia_d = %s, tratamiento_d = %s, diagnostico_diferencial_d = %s, otras_mascotas_d = %s, nin_casa_d = %s, familia_problema_d = %s, tipo_comida_d = %s, golosinas_d = %s, caida_pelo_d = %s, se_rasca_d = %s, ambiente_d = %s, pasa_sol_d = %s, pasa_tierra_d = %s, defecacion_d = %s, parte_enrojecida_d = %s, fecha_ectoparasitos_d = %s, descrip_ectoparasitos_d = %s, duchas_casa_d = %s, alergia_comida_d = %s, rasp_cutaneo_d = %s, tricograma_d = %s, lampara_wood_d = %s, reflejo_otopodal_d = %s, biopsia_d = %s, citologia_d = %s, antibiograma_d = %s, diagnostico_definitivo_d = %s, tratamiento_final_d = %s, medicamento_1_d = %s, posologia_medicamento_1_d = %s, medicamento_2_d = %s, posologia_medicamento_2_d = %s, medicamento_3_d = %s, posologia_medicamento_3_d = %s, medicamento_4_d = %s, posologia_medicamento_4_d = %s, medicamento_5_d = %s, posologia_medicamento_5_d = %s, proxima_cita_d = %s WHERE id = %s",

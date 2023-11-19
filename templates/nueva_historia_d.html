@@ -37,15 +37,15 @@
         Vacuna 4: <input type="text" name="vacuna_4_d" value="{{ request.form.vacuna_4_d or '' }}"> Fecha: <input type="date" name="fecha_vacuna_4_d" value="{{ request.form.fecha_vacuna_4_d or '' }}"><br><br>
         Vacuna 5: <input type="text" name="vacuna_5_d" value="{{ request.form.vacuna_5_d or '' }}"> Fecha: <input type="date" name="fecha_vacuna_5_d" value="{{ request.form.fecha_vacuna_5_d or '' }}"><br><br>
         Fecha de Última Desparasitación: <input type="date" name="fecha_ultima_desparasitacion_d" value="{{ request.form.fecha_ultima_desparasitacion_d or '' }}"><br><br>
-        Motivo de Consulta: <textarea name="motivo_consulta_d" rows="4" cols="50">{{ request.form.motivo_consulta_d or '' }}</textarea><br><br>
-        Sintomatología: <textarea name="sintomatologia_d" rows="4" cols="50">{{ request.form.sintomatologia_d or '' }}</textarea><br><br>
-        Tratamiento o Enfermedades: <textarea name="tratamiento_d" rows="4" cols="50">{{ request.form.tratamiento_d or '' }}</textarea><br><br>
-        Diagnóstico Diferencial: <textarea name="diagnostico_diferencial_d" rows="4" cols="50">{{ request.form.diagnostico_diferencial_d or '' }}</textarea><br><br>
+        Motivo de Consulta: <br><textarea name="motivo_consulta_d" rows="4" cols="50">{{ request.form.motivo_consulta_d or '' }}</textarea><br><br>
+        Sintomatología: <br><textarea name="sintomatologia_d" rows="4" cols="50">{{ request.form.sintomatologia_d or '' }}</textarea><br><br>
+        Tratamiento o Enfermedades: <br><textarea name="tratamiento_d" rows="4" cols="50">{{ request.form.tratamiento_d or '' }}</textarea><br><br>
+        Diagnóstico Diferencial: <br><textarea name="diagnostico_diferencial_d" rows="4" cols="50">{{ request.form.diagnostico_diferencial_d or '' }}</textarea><br><br>
         
         ¿Vive con otras mascotas?: <input type="text" name="otras_mascotas_d" value="{{ request.form.otras_mascotas_d or '' }}"><br><br>
         ¿Vive con niños en casa?: <input type="text" name="nin_casa_d" value="{{ request.form.nin_casa_d or '' }}"><br><br>
         ¿Algún miembro de la familia ha presentado problemas en la piel?: <input type="text" name="familia_problema_d" value="{{ request.form.familia_problema_d or '' }}"><br><br>
-        ¿Tipo de Comida?: <textarea name="tipo_comida_d" rows="4" cols="50">{{ request.form.tipo_comida_d or '' }}</textarea><br><br>
+        ¿Tipo de Comida?: <br><textarea name="tipo_comida_d" rows="4" cols="50">{{ request.form.tipo_comida_d or '' }}</textarea><br><br>
         ¿Come golosinas?: <input type="text" name="golosinas_d" value="{{ request.form.golosinas_d or '' }}"><br><br>
         ¿Le cae el pelo?: <input type="text" name="caida_pelo_d" value="{{ request.form.caida_pelo_d or '' }}"><br><br>
         ¿Se Rasca? Determine en la escala: <input type="text" name="se_rasca_d" value="{{ request.form.se_rasca_d or '' }}"><br><br>
@@ -59,8 +59,11 @@
         Pasa Tiempo en la Tierra: <input type="text" name="pasa_tierra_d" value="{{ request.form.pasa_tierra_d or '' }}"><br><br>
         Patrón de Defecación: <input type="text" name="defecacion_d" value="{{ request.form.defecacion_d or '' }}"><br><br>
         Parte Enrojecida o Inflamada: <input type="text" name="parte_enrojecida_d" value="{{ request.form.parte_enrojecida_d or '' }}"><br><br>
-        Fecha de Ectoparásitos: <input type="date" name="fecha_ectoparasitos_d" value="{{ request.form.fecha_ectoparasitos_d or '' }}"><br><br>
-        Descripción de Ectoparásitos: <textarea name="descrip_ectoparasitos_d" rows="4" cols="50">{{ request.form.descrip_ectoparasitos_d or '' }}</textarea><br><br>
+        
+        ¿Control de Ectoparásitos?<br><br>
+        Fecha: <input type="date" name="fecha_ectoparasitos_d" value="{{ request.form.fecha_ectoparasitos_d or '' }}"><br>
+        Descripción: <br><textarea name="descrip_ectoparasitos_d" rows="4" cols="50">{{ request.form.descrip_ectoparasitos_d or '' }}</textarea><br><br>
+        
         Duchas en Casa: <input type="text" name="duchas_casa_d" value="{{ request.form.duchas_casa_d or '' }}"><br><br>
         Alergia a la Comida: <input type="text" name="alergia_comida_d" value="{{ request.form.alergia_comida_d or '' }}"><br><br>
         
@@ -72,8 +75,8 @@
         Citología: <input type="text" name="citologia_d" value="{{ request.form.citologia_d or '' }}"><br><br>
         Antibiograma: <input type="text" name="antibiograma_d" value="{{ request.form.antibiograma_d or '' }}"><br><br>
         
-        Diagnóstico Definitivo: <textarea name="diagnostico_definitivo_d" rows="4" cols="50">{{ request.form.diagnostico_definitivo_d or '' }}</textarea><br><br>
-        Tratamiento: <textarea name="tratamiento_final_d" rows="4" cols="50">{{ request.form.tratamiento_final_d or '' }}</textarea><br><br>
+        Diagnóstico Definitivo: <br><textarea name="diagnostico_definitivo_d" rows="4" cols="50">{{ request.form.diagnostico_definitivo_d or '' }}</textarea><br><br>
+        Tratamiento: <br><textarea name="tratamiento_final_d" rows="4" cols="50">{{ request.form.tratamiento_final_d or '' }}</textarea><br><br>
         Medicamento: <input type="text" name="medicamento_1_d" value="{{ request.form.medicamento_1_d or '' }}">
         Posología: <input type="text" name="posologia_medicamento_1_d" value="{{ request.form.posologia_1_d or '' }}"><br><br>
         Medicamento: <input type="text" name="medicamento_2_d" value="{{ request.form.medicamento_2_d or '' }}">

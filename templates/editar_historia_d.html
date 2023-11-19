@@ -44,10 +44,10 @@
         Vacuna 5: <input type="text" name="vacuna_5_d" value="{{ historia_derma[21] if historia_derma else '' }}">        
         Fecha: <input type="date" name="fecha_vacuna_5_d" value="{{ historia_derma[22] or '' }}"><br><br>
         Fecha de Última Desparasitación: <input type="date" name="fecha_ultima_desparasitacion_d" value="{{ historia_derma[23] or '' }}"><br><br>
-        Motivo de Consulta:<textarea name="motivo_consulta_d" rows="5">{{ historia_derma[24] if historia_derma else '' }}</textarea><br><br>
-        Sintomatología: <textarea name="sintomatologia_d" rows="5">{{ historia_derma[25] if historia_derma else '' }}</textarea><br><br>
-        Tratamientos o Enfermedades: <textarea name="tratamiento_d" rows="5">{{ historia_derma[26] if historia_derma else '' }}</textarea><br><br>
-        Diagnóstico Diferencial: <textarea name="diagnostico_diferencial_d" rows="5">{{ historia_derma[27] if historia_derma else '' }}</textarea><br><br>
+        Motivo de Consulta:<br><textarea name="motivo_consulta_d" rows="5" cols="50">{{ historia_derma[24] if historia_derma else '' }}</textarea><br><br>
+        Sintomatología: <br><textarea name="sintomatologia_d" rows="5" cols="50">{{ historia_derma[25] if historia_derma else '' }}</textarea><br><br>
+        Tratamientos o Enfermedades: <br><textarea name="tratamiento_d" rows="5" cols="50">{{ historia_derma[26] if historia_derma else '' }}</textarea><br><br>
+        Diagnóstico Diferencial: <br><textarea name="diagnostico_diferencial_d" rows="5" cols="50">{{ historia_derma[27] if historia_derma else '' }}</textarea><br><br>
         ¿Vive con otras mascotas?: <input type="text" name="otras_mascotas_d" value="{{ historia_derma[28] if historia_derma else '' }}"><br><br>
         ¿Vive con niños en casa: <input type="text" name="nin_casa_d" value="{{ historia_derma[29] if historia_derma else '' }}"><br><br>
         Familia con problemas de salud: <input type="text" name="familia_problema_d" value="{{ historia_derma[30] if historia_derma else '' }}"><br><br>
@@ -60,8 +60,12 @@
         Pasa mucho tiempo en la tierra: <input type="text" name="pasa_tierra_d" value="{{ historia_derma[37] if historia_derma else '' }}"><br><br>
         Defecación: <input type="text" name="defecacion_d" value="{{ historia_derma[38] if historia_derma else '' }}"><br><br>
         Parte enrojecida: <input type="text" name="parte_enrojecida_d" value="{{ historia_derma[39] if historia_derma else '' }}"><br><br>
-        Fecha de ectoparásitos: <input type="date" name="fecha_ectoparasitos_d" value="{{ historia_derma[40] or '' }}"><br><br>
-        Descripción de ectoparásitos: <input type="text" name="descrip_ectoparasitos_d" value="{{ historia_derma[41] if historia_derma else '' }}"><br><br>
+        ¿Control de Ectoparásitos?<br><br>
+        Fecha: <input type="date" name="fecha_ectoparasitos_d" value="{{ historia_derma[40] or '' }}"><br>
+       <!-- Descripción: <input type="text" name="descrip_ectoparasitos_d" value="{{ historia_derma[41] if historia_derma else '' }}"><br><br>
+       --> Descripción:<br><textarea name="descrip_ectoparasitos_d" rows="5" cols="50">{{ historia_derma[41] if historia_derma else '' }}</textarea><br><br>
+
+        
         Duchas en casa: <input type="text" name="duchas_casa_d" value="{{ historia_derma[42] if historia_derma else '' }}"><br><br>
         Alergia a comida: <input type="text" name="alergia_comida_d" value="{{ historia_derma[43] if historia_derma else '' }}"><br><br>
         Raspado cutáneo: <input type="text" name="rasp_cutaneo_d" value="{{ historia_derma[44] if historia_derma else '' }}"><br><br>

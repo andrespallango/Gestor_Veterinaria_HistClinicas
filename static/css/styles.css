@@ -51,6 +51,13 @@
     justify-content: space-between; /* Distribuye los elementos horizontalmente */
 }
 
+@media print {
+    .imprimir {
+        display: none;
+    }
+}
+
+
 .button-container a {
     margin-right: 10px; /* Ajusta el margen derecho según tus preferencias */
 }
