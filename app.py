@@ -299,6 +299,7 @@ def editar_historia(id):
         posologia_1 = request.form['posologia_1']
         medicamento_2 = request.form['medicamento_2']
         posologia_2 = request.form['posologia_2']
+        
         medicamento_3 = request.form['medicamento_3']
         posologia_3 = request.form['posologia_3']
         medicamento_4 = request.form['medicamento_4']
