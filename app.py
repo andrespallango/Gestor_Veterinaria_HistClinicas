@@ -294,7 +294,6 @@ def editar_historia(id):
         examenes_complementarios = request.form['examenes_complementarios']
         diagnostico_definitivo = request.form['diagnostico_definitivo']
         tratamiento_final = request.form['tratamiento_final']
-        
         medicamento_1 = request.form['medicamento_1']
         posologia_1 = request.form['posologia_1']
         medicamento_2 = request.form['medicamento_2']

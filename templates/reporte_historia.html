@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<table class="info-table" style="max-width: 80%;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
     <tr>
         <td class="label"><strong>ID: C.V.A.M-</strong></td>
         <td>{{ historia[0] }}</td>
@@ -46,7 +46,7 @@
     </tr>
 </table>
 <!-- Nueva tabla de vacunas -->
-<table class="info-table" style="max-width: 80%; border-collapse: separate;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
     <tr>
         <th class="label">Vacuna</th>
         <th class="label">Fecha</th>
@@ -73,7 +73,7 @@
     </tr>
 </table>
 
-<table class="info-table" style="max-width: 80%;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
     <tr>
         <td class="label"><strong>Fecha Última Desparasitación:</strong></td>
         <td>{{ historia[23] if historia[23] else '' }}</td>
@@ -108,7 +108,7 @@
     </tr>
 
 </table>
-<table class="info-table" style="max-width: 80%; border-collapse: separate;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
     <tr>
         <th class="label">Medicamento</th>
         <th class="label">Posología</th>
@@ -134,7 +134,7 @@
         <td>{{ historia[40] }}</td>
     </tr>
 </table>
-<table class="info-table" style="max-width: 80%;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
     <tr>
         <td class="label"><strong>Fecha de próxima cita:</strong></td>
         <td>{{ historia[41] if historia[41] else '' }}</td><br>
