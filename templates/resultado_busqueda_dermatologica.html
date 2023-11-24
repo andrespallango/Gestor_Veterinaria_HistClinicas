@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    .info-table td {
+        background-color: white;
+    }
+</style>
     <h1>Resultados de la Búsqueda de Historias Clínicas Dermatológicas</h1>
     <ul class="history-list">
         {% for historia_derma in historias_dermatologicas %}

@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+    .info-table td {
+        background-color: white;
+    }
+</style>
 
-<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <td class="label"><strong>ID: C.V.A.M.D-</strong></td>
         <td>{{ historia_derma[0] }}</td>
@@ -46,7 +51,7 @@
     </tr>
 </table>
 
-<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <th class="label">Vacuna</th>
         <th class="label">Fecha</th>
@@ -73,7 +78,7 @@
     </tr>
 </table>
 
-<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <td class="label"><strong>Fecha Última Desparasitación:</strong></td>
         <td>{{ historia_derma[23] if historia_derma[23] else '' }}</td>
@@ -143,7 +148,7 @@
         <td>{{ historia_derma[39] }}</td>
     </tr>
 </table>
-<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <td class="label" colspan="2" style="text-align: center;"><strong>¿Control de Ectoparásitos?</strong></td>
     </tr>
@@ -157,7 +162,7 @@
     </tr>
 </table>
 
-<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <td class="label"><strong>¿Regularidad de duchas en casa?:</strong></td>
         <td>{{ historia_derma[42] }}</td>
@@ -168,7 +173,7 @@
     </tr>
 </table>
 
-<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <td class="label"><strong>Raspado Cutaneo: </strong></td>
         <td>{{ historia_derma[44] }}</td>
@@ -211,7 +216,7 @@
     </tr>
 </table>
 
-<table class="info-table" style="max-width: 80%; border-collapse: separate; background-color: white;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <th class="label">Medicamento</th>
         <th class="label">Posología</th>
@@ -237,7 +242,7 @@
         <td>{{ historia_derma[62] }}</td>
     </tr>
 </table>
-<table class="info-table" style="max-width: 80%;">
+<table class="info-table" style="max-width: 80%; border-collapse: separate;">
     <tr>
         <td class="label"><strong>Fecha de próxima cita:</strong></td>
         <td>{{ historia_derma[63] if historia_derma[63] else '' }}</td>
