@@ -10,13 +10,14 @@
 <body >
     <!-- Logo de la veterinaria -->
     <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo de Ani-Medical Centro Veterinario" class="logo">
-    
+    <div class="button-container imprimir">
     <h1>Registro de Historias Clínicas</h1>
-    
+    </div>
+    <br>
     {% block content %}{% endblock %}
     <!-- Pie de página -->
     <footer>
-        <p style="text-align: center;">v. 4.2</p>
+        <p style="text-align: center;">v. 4.2.1</p>
     </footer>
 </body>
 </html>
