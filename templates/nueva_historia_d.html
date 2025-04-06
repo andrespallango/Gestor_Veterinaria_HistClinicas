@@ -13,8 +13,8 @@
         Médico Responsable: <input type="text" name="medico_responsable_d" value="{{ request.form.medico_responsable_d or '' }}" required><br><br>
         Propietario: <input type="text" name="propietario_d" value="{{ request.form.propietario_d or '' }}" required>
         Fecha de Creación: <input type="date" name="fecha_creacion_d" value="{{ request.form.fecha_creacion_d or '' }}" required><br><br>
-        Cédula: <input type="text" name="cedula_d" value="{{ request.form.cedula_d or '' }}" required><br><br>
-        Dirección: <input type="text" name="direccion_d" value="{{ request.form.direccion_d or '' }}" required><br><br>
+        Cédula: <input type="text" name="cedula_d" id="cedula_d" value="{{ request.form.cedula_d or '' }}" required>
+        <span id="cedulaError" style="color: red;"></span><br><br>Dirección: <input type="text" name="direccion_d" value="{{ request.form.direccion_d or '' }}" required><br><br>
         Teléfono: <input type="text" name="telefono_d" value="{{ request.form.telefono_d or '' }}"  required><br><br>
         Nombre del Paciente: <input type="text" name="nombre_paciente_d" value="{{ request.form.nombre_paciente_d or '' }}" required>
         Fecha de Nacimiento: <input type="date" name="fecha_nacimiento_d" value="{{ request.form.fecha_nacimiento_d or '' }}" required><br><br>
@@ -98,4 +98,19 @@
             <div class="alert alert-danger">{{ error_message }}</div>
         {% endif %}
     </form>
+    <script>
+        function validateForm() {
+            var cedula = document.getElementById("cedula_d").value;
+            var cedulaError = document.getElementById("cedulaError");
+    
+            // Validar que la cédula tenga 10 dígitos numéricos
+            if (cedula.length !== 10 || isNaN(cedula)) {
+                cedulaError.innerHTML = "La cedula no es correcta, reintenta.";
+                return false;
+            }
+    
+            cedulaError.innerHTML = "";  // Limpiar el mensaje de error si la validación es exitosa.
+            return true;
+        }
+    </script>
 {% endblock %}

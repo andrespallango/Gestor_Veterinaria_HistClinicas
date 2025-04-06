@@ -1,0 +1,13 @@
+Feature: Buscar Historia Clínica
+
+Scenario: Buscar historia clínica por cédula válida
+  Given I am on the clinical records search page
+  When I enter the ID "1234567890"
+  And I click the search button
+  Then I should see the clinical record
+
+Scenario: Buscar historia clínica por cédula inválida
+  Given I am on the clinical records search page
+  When I enter the ID "0000000000"
+  And I click the search button
+  Then I should see an error message

@@ -1,9 +1,10 @@
 # Importar las bibliotecas necesarias
+import re
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flaskext.mysql import MySQL
 
 app = Flask(__name__)
-app.secret_key = 'secretkey2023'  # Clave secreta para la sesión
+app.secret_key = 'secretkey2023'  # Clave secreta para la sesiÃ³n
 
 # Configuración de la base de datos
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
@@ -13,10 +14,13 @@ app.config['MYSQL_DATABASE_DB'] = 'veterinaria'
 
 mysql = MySQL(app)
 
-# Página de inicio
+# PÃ¡gina de inicio
 @app.route('/')
 def index():
     return render_template('index.html')
+
+def validar_cedula(cedula):
+    return cedula.isdigit() and len(cedula) == 10
 
 # Nueva ruta para tipo de historia
 @app.route('/tipo_historia')
@@ -29,6 +33,7 @@ def tipo_consulta():
     return render_template('tipo_consulta.html')
 
 @app.route('/nueva_historia', methods=['GET', 'POST'])
+
 def nueva_historia():
     error_message = None  # Inicializa el mensaje de error como nulo
 
@@ -76,8 +81,10 @@ def nueva_historia():
         proxima_cita = request.form['proxima_cita'] if request.form['proxima_cita'] else None
 
 
-        # Verifica que los campos obligatorios estén llenos
-        if not (cedula and propietario and direccion and medico_responsable and fecha_creacion and telefono and
+        if not validar_cedula(cedula):
+            error_message = 'La cédula no es correcta, reintenta.'
+        # ValidaciÃ³n de campos obligatorios
+        elif not (cedula and propietario and direccion and medico_responsable and fecha_creacion and telefono and
                 nombre_paciente and especie and sexo):
             error_message = 'Por favor, llena todos los campos obligatorios.'
         else:
@@ -93,7 +100,7 @@ def nueva_historia():
 
     return render_template('nueva_historia.html', error_message=error_message)
 
-# Nueva ruta para historia clínica dermatológica
+# Nueva ruta para historia clÃ­nica dermatológica
 @app.route('/nueva_historia_d', methods=['GET', 'POST'])
 def nueva_historia_d():
     error_message = None
@@ -164,8 +171,11 @@ def nueva_historia_d():
         posologia_medicamento_5_d = request.form['posologia_medicamento_5_d']
         proxima_cita_d = request.form['proxima_cita_d'] if request.form['proxima_cita_d'] else None
 
-        # Verifica que los campos obligatorios estén llenos
-        if not (cedula_d and propietario_d and direccion_d and medico_responsable_d and fecha_creacion_d and telefono_d and
+        # Verifica que los campos obligatorios estÃ©n llenos
+        if not validar_cedula(cedula_d):
+            error_message = 'La cédula no es correcta, reintenta.'
+        # ValidaciÃ³n de campos obligatorios
+        elif not (cedula_d and propietario_d and direccion_d and medico_responsable_d and fecha_creacion_d and telefono_d and
                 nombre_paciente_d and especie_d and sexo_d):
             error_message = 'Por favor, llena todos los campos obligatorios.'
         else:
@@ -178,17 +188,25 @@ def nueva_historia_d():
 
     return render_template('nueva_historia_d.html', error_message=error_message)
 
-# Nueva ruta para mostrar la página de historia creada con éxito
+# Nueva ruta para mostrar la pÃ¡gina de historia creada con Ã©xito
 @app.route('/historia_creada')
 def historia_creada():
     return render_template('historia_creada.html')
 
+def validar_cedula_ecuador(cedula):
+    # ExpresiÃ³n regular para validar cÃ©dulas ecuatorianas
+    patron_cedula_ecuador = re.compile(r'^[0-9]{10}$')
 
-# Página para buscar historias clínicas por cédula
+    return bool(patron_cedula_ecuador.match(cedula))
+
+# PÃ¡gina para buscar historias clÃ­nicas por cÃ©dula
 @app.route('/buscar_historia', methods=['GET', 'POST'])
 def buscar_historia():
     if request.method == 'POST':
         cedula = request.form['cedula']
+
+        if not validar_cedula_ecuador(cedula):
+            return render_template('error_busqueda.html', error_cedula=True)
 
         cursor = mysql.get_db().cursor()
         cursor.execute("SELECT * FROM historia WHERE cedula = %s", (cedula,))
@@ -202,11 +220,14 @@ def buscar_historia():
 
     return render_template('buscar_historia.html')
 
-# Página para buscar historias clínicas dermatológicas por cédula
+# PÃ¡gina para buscar historias clÃ­nicas dermatolÃ³gicas por cÃ©dula
 @app.route('/buscar_historia_d', methods=['GET', 'POST'])
 def buscar_historia_d():
     if request.method == 'POST':
         cedula_d = request.form['cedula_d']
+
+        if not validar_cedula_ecuador(cedula_d):
+            return render_template('error_busqueda.html', error_cedula=True)
 
         cursor = mysql.get_db().cursor()
         cursor.execute("SELECT * FROM historia_derma WHERE cedula_d = %s", (cedula_d,))
@@ -220,7 +241,7 @@ def buscar_historia_d():
 
     return render_template('buscar_historia_d.html')
 
-# Ruta para mostrar la página de confirmación de borrado
+# Ruta para mostrar la pÃ¡gina de confirmaciÃ³n de borrado
 @app.route('/confirmar_borrar_historia/<int:id>')
 def confirmar_borrar_historia(id):
     historia_borrada = False  # Inicialmente, la historia no ha sido borrada
@@ -233,28 +254,28 @@ def borrar_historia(id):
     cursor.execute("DELETE FROM historia WHERE id = %s", (id,))
     mysql.get_db().commit()
     cursor.close()
-    historia_borrada = True  # La historia ha sido borrada con éxito
+    historia_borrada = True  # La historia ha sido borrada con Ã©xito
     return render_template('confirmacion_borrar_historia.html', id=id, historia_borrada=historia_borrada)
 
-# Ruta para mostrar la página de confirmación de borrado de historia dermatológica
+# Ruta para mostrar la pÃ¡gina de confirmaciÃ³n de borrado de historia dermatolÃ³gica
 @app.route('/confirmar_borrar_historia_d/<int:id>')
 def confirmar_borrar_historia_d(id):
     historia_borrada = False  # Inicialmente, la historia no ha sido borrada
     return render_template('confirmacion_borrar_historia_d.html', id=id, historia_borrada=historia_borrada)
 
 
-# Ruta para borrar una historia dermatológica
+# Ruta para borrar una historia dermatolÃ³gica
 @app.route('/borrar_historia_d/<int:id>')
 def borrar_historia_d(id):
     cursor = mysql.get_db().cursor()
     cursor.execute("DELETE FROM historia_derma WHERE id = %s", (id,))
     mysql.get_db().commit()
     cursor.close()
-    historia_borrada = True  # La historia dermatológica ha sido borrada con éxito
+    historia_borrada = True  # La historia dermatolÃ³gica ha sido borrada con Ã©xito
     return render_template('confirmacion_borrar_historia_d.html', id=id, historia_borrada=historia_borrada)
 
 
-# Ruta para mostrar la página de edición de historia clínica
+# Ruta para mostrar la pÃ¡gina de ediciÃ³n de historia clÃ­nica
 @app.route('/editar_historia/<int:id>', methods=['GET', 'POST'])
 def editar_historia(id):
     cursor = mysql.get_db().cursor()
@@ -317,7 +338,7 @@ def editar_historia(id):
 
     return render_template('editar_historia.html', historia=historia)
 
-# Ruta para mostrar la página de edición de historia clínica dermatológica
+# Ruta para mostrar la pÃ¡gina de ediciÃ³n de historia clÃ­nica dermatolÃ³gica
 @app.route('/editar_historia_d/<int:id>', methods=['GET', 'POST'])
 def editar_historia_d(id):
     cursor = mysql.get_db().cursor()
@@ -403,7 +424,7 @@ def editar_historia_d(id):
 
 
 
-# Nueva ruta para mostrar la página de historia actualizada con éxito
+# Nueva ruta para mostrar la pÃ¡gina de historia actualizada con Ã©xito
 @app.route('/historia_actualizada')
 def historia_actualizada():
     return render_template('historia_actualizada.html')
@@ -418,7 +439,7 @@ def reporte_completo():
     cursor.execute("SELECT * FROM historia")
     historias = cursor.fetchall()
 
-    # Consulta para obtener historias dermatológicas
+    # Consulta para obtener historias dermatolÃ³gicas
     cursor.execute("SELECT * FROM historia_derma")
     historias_derma = cursor.fetchall()
 
@@ -427,7 +448,7 @@ def reporte_completo():
     return render_template('reporte_completo.html', historias=historias, historias_derma=historias_derma)
 
 
-# Ruta para mostrar el reporte de una historia clínica
+# Ruta para mostrar el reporte de una historia clÃ­nica
 @app.route('/reporte_historia/<int:id>')
 def reporte_historia(id):
     cursor = mysql.get_db().cursor()
@@ -437,7 +458,7 @@ def reporte_historia(id):
 
     return render_template('reporte_historia.html', historia=historia)
 
-# Ruta para mostrar el reporte de una historia clínica dermatológica
+# Ruta para mostrar el reporte de una historia clÃ­nica dermatolÃ³gica
 @app.route('/reporte_historia_d/<int:id>')
 def reporte_historia_d(id):
     cursor = mysql.get_db().cursor()
